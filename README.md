@@ -9,8 +9,9 @@ POST /Account/Register
 ```
 
 Parametros
+
 | Nombre | Tipo | Descripción |
-|--|--|--|
+|---|---|---|
 | Name | String | Nombre del usuario |
 | Nickname | String | Carácteres permitidos: a-Z, 0-9, _ |
 | Email | String | 64 chars máx |
