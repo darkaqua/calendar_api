@@ -46,7 +46,7 @@ POST /Account/Login
 Parametros
 
 | Nombre | Tipo | Descripción |
-|--|--|:--:|
+|---|---|:--:|
 | email | String | - |
 | password | String | - |
 
