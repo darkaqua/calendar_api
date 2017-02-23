@@ -64,3 +64,52 @@ Respuesta
     "message": "El correo electrónico no esta registrado."
 }
 ```
+
+## Company
+
+### RetrieveList
+
+```
+POST /Company/RetrieveList
+```
+
+Devuelve una lista con información de las compañias que pertenece el usuario
+
+Parametros
+
+| Nombre | Tipo | Descripción |
+|---|---|:--:|
+| client_id | String | - |
+| client_token | String | - |
+
+Respuesta
+
+```Json
+{
+	"company_list": []
+}
+```
+```Json
+{
+	"company_list": [
+    	{
+        	"uuid": "b297c4e5-e9e9-4595-badb-8a93d8853cf2",
+            "register_datetime": 1487865048,
+            "name": "Mecano el mecánico",
+            "description": "Tu mecánico de confianza",
+            "email": "ayuda@mecano-el-mecanico.com",
+            "whatsapp": "666777999",
+            "gps": "40.741895,-73.989308"
+        },
+    	{
+        	"uuid": "b297c4e5-e9e9-4595-badb-8a93d8853cf2",
+            "register_datetime": 1487865048,
+            "name": "Mecano el mecánico",
+            "description": "Tu mecánico de confianza",
+            "email": "ayuda@mecano-el-mecanico.com",
+            "whatsapp": "666777999",
+            "gps": "40.741895,-73.989308"
+        }
+    ]
+}
+```
