@@ -65,12 +65,12 @@ Respuesta
 }
 ```
 
-## Company
+## User
 
-### RetrieveList
+### RetrieveCompanyList
 
 ```
-POST /Company/RetrieveList
+POST /User/RetrieveCompanyList
 ```
 
 Devuelve una lista con información de las compañias que pertenece el usuario
