@@ -13,13 +13,20 @@ module.exports = (app, express) => {
                 return;
             }
 
-            let route_name = (directory+ /(.+)\.js/i.exec(name)[1]).replace(/\//g, ' ');
-            let route_file = route_name.replace(/ /g, '/');
+            let route_name  = (directory + /(.+)\.js/i.exec(name)[1]);
+            let complete_route = `./routes/${route_name}`;
 
-            app.get(`/${route_file}`, (request, response, next) => {
-                //TODO Verificar al usuario, menos por el login y el registro
-                require(`./routes/${route_file}`)(app, express, request, response, next);
-            });
+            //TODO Verificar al usuario, menos por el login y el registro
+
+            if(route_name.indexOf(`get`) !== -1){
+                app.get(`${route_name.replace('get', '')}`, (request, response, next) =>
+                    require(complete_route)(app, express, request, response, next)
+                );
+                return;
+            }
+            app.post(`${route_name.replace('post', '')}`, (request, response, next) =>
+                require(complete_route)(app, express, request, response, next)
+            );
         });
     };
     readRoutes();
@@ -27,4 +34,5 @@ module.exports = (app, express) => {
     const pkg = global.package;
     const basic_msg = { message:`${pkg.name} - versión ${pkg.version}`};
     app.get('*', (request, response, next) => response.json(basic_msg));
+    app.post('*', (request, response, next) => response.json(basic_msg));
 };
