@@ -1,5 +1,24 @@
 # calendar project API (not secured at all)
 
+## carpeta 'private'
+
+### - config.json
+
+```JSON
+{
+  "api": {
+    "ip": "<ip>",
+    "port": <puerto>
+  },
+  "db": {
+    "host": "<url de la base de datos>",
+    "user": "<nombre del usuario>",
+    "password": "<contraseña>",
+    "database": "<nombre de la base de datos>"
+  }
+}
+```
+
 ## Account
 
 ### Register
@@ -26,7 +45,7 @@ Parametros
 Respuesta
 ```Json
 {
-	"valid": true,
+    "valid": true,
     "message": "Se ha enviado un mensaje de verificación a tu correo electrónico."
 }
 ```
