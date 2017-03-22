@@ -16,3 +16,12 @@ app.listen(port, () => {
 });
 
 require('./routes')(app, express);
+
+// const sql_conn = require('./utils/sql-source').connection();
+// const query = `SELECT * FROM User WHERE 1`;
+// sql_conn.query(
+//     query,
+//     (sql_error, sql_results, sql_fields) => {
+//         console.log(sql_results);
+//     }
+// );
