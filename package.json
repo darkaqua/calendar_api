@@ -6,7 +6,10 @@
     "start on changes": "nodemon main.js"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "crypto-js": "^3.1.9-1",
     "express": "^4.15.2",
-    "mysql": "^2.13.0"
+    "mysql": "^2.13.0",
+    "uuid-validate": "0.0.2"
   }
 }
