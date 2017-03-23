@@ -132,3 +132,42 @@ Respuesta
     ]
 }
 ```
+
+## Info
+
+### Version
+
+```
+POST /Info/Version
+```
+
+Respuesta
+
+```Json
+{
+    version": "0.0.1"
+}
+```
+
+## Misc
+
+### country_list
+
+```
+POST /country_list
+```
+
+Respuesta
+
+```Json
+[
+    {
+        "name": "España",
+        "code": "ES"
+    },
+    {
+        "name": "Francia",
+        "code": "FR"
+    }
+]
+```
