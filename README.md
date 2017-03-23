@@ -31,16 +31,16 @@ Parametros
 
 | - | Nombre | Tipo | Descripción |
 |---|---|---|---|
-|| name | String | Nombre del usuario |
-|| username | String | Carácteres permitidos: a-Z, 0-9, _ |
-|| email | String | 64 chars máx |
-|| re_email | String | Coincidencia con Email |
-|| password | String | Se permite cualquier caracter, entre 8-32 chars de longitud |
-|| re_password | String | Coincidencia con Password |
+| | name | String | Nombre del usuario |
+| | username | String | Carácteres permitidos: a-Z, 0-9, _ |
+| | email | String | 64 chars máx |
+| | re_email | String | Coincidencia con Email |
+| | password | String | Se permite cualquier caracter, entre 8-32 chars de longitud |
+| | re_password | String | Coincidencia con Password |
 |-| telephone | String | 10 chars máx |
 |-| city | String | Limitado a lista de ciudades |
 |-| postal_code | String | 10 chars máx |
-|| country | String | Limitado a lista de paises |
+| | country | String | Limitado a lista de paises |
 
 Respuesta
 ```Json
