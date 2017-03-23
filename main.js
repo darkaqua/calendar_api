@@ -7,21 +7,16 @@ const express = require('express');
 const app = express();
 
 global.package = require('./package.json');
-global.config = require('./private/config.json');
+try{
+    global.config = require('./private/config.json');
 
-const port = global.config.api.port;
+    const port = global.config.api.port;
 
-app.listen(port, () => {
-    console.log(`REST API server started at http://localhost:${port}`)
-});
+    app.listen(port, () => {
+        console.log(`REST API server started at http://localhost:${port}`)
+    });
 
-require('./routes')(app, express);
-
-// const sql_conn = require('./utils/sql-source').connection();
-// const query = `SELECT * FROM User WHERE 1`;
-// sql_conn.query(
-//     query,
-//     (sql_error, sql_results, sql_fields) => {
-//         console.log(sql_results);
-//     }
-// );
+    require('./routes')(app, express);
+} catch(e){
+    console.log(`No se encuentra el archivo de configuración... :(`);
+}
