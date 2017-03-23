@@ -7,7 +7,12 @@ const express = require('express');
 const app = express();
 
 global.package = require('./package.json');
-global.config = require('./private/config.json');
+try{
+    global.config = require('./private/config.json');
+} catch(e){
+    console.log(`No se encuentra el archivo de configuración en './private/config.json'`);
+    global.config = require('./public/config_example.json');
+}
 
 const port = global.config.api.port;
 

@@ -1,0 +1,12 @@
+{
+  "api": {
+    "ip": "",
+    "port": 0
+  },
+  "db": {
+    "host": "",
+    "user": "",
+    "password": "",
+    "database": ""
+  }
+}
