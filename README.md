@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/darkaqua/calendar_api.svg?branch=develop)](https://travis-ci.org/darkaqua/calendar_api)
+
 # calendar project API (not secured at all)
 
 ## carpeta 'private'
@@ -6,16 +8,16 @@
 
 ```JSON
 {
-  "api": {
-    "ip": "<ip>",
-    "port": <puerto>
-  },
-  "db": {
-    "host": "<url de la base de datos>",
-    "user": "<nombre del usuario>",
-    "password": "<contraseña>",
-    "database": "<nombre de la base de datos>"
-  }
+    "api": {
+        "ip": "<ip>",
+        "port": <puerto>
+    },
+    "db": {
+        "host": "<url de la base de datos>",
+        "user": "<nombre del usuario>",
+        "password": "<contraseña>",
+        "database": "<nombre de la base de datos>"
+    }
 }
 ```
 
@@ -51,7 +53,7 @@ Respuesta
 ```
 ```Json
 {
-	"valid": false,
+    "valid": false,
     "message": "Las contraseñas no coinciden"
 }
 ```
@@ -72,14 +74,14 @@ Parametros
 Respuesta
 ```Json
 {
-	"valid": true,
+    "valid": true,
     "client_id": "c69effc00619d50fd735cb09721221b68c81f6b7bcb063df590d5bd7c68c0d7b",
     "client_token": "471acf692b08612c2a9cb219491f4610c4af824adc391239f512105a83ec2312"
 }
 ```
 ```Json
 {
-	"valid": false,
+    "valid": false,
     "message": "El correo electrónico no esta registrado."
 }
 ```
@@ -105,14 +107,14 @@ Respuesta
 
 ```Json
 {
-	"company_list": []
+    "company_list": []
 }
 ```
 ```Json
 {
-	"company_list": [
-    	{
-        	"uuid": "b297c4e5-e9e9-4595-badb-8a93d8853cf2",
+    "company_list": [
+        {
+            "uuid": "b297c4e5-e9e9-4595-badb-8a93d8853cf2",
             "register_datetime": 1487865048,
             "name": "Mecano el mecánico",
             "description": "Tu mecánico de confianza",
@@ -120,8 +122,8 @@ Respuesta
             "whatsapp": "666777999",
             "gps": "40.741895,-73.989308"
         },
-    	{
-        	"uuid": "b297c4e5-e9e9-4595-badb-8a93d8853cf2",
+        {
+            "uuid": "b297c4e5-e9e9-4595-badb-8a93d8853cf2",
             "register_datetime": 1487865048,
             "name": "Mecano el mecánico",
             "description": "Tu mecánico de confianza",
@@ -145,7 +147,7 @@ Respuesta
 
 ```Json
 {
-    version": "0.0.1"
+    "version": "0.0.1"
 }
 ```
 
