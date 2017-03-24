@@ -153,10 +153,10 @@ Respuesta
 
 ## Misc
 
-### CountryList
+### Country-List
 
 ```
-POST /CountryList
+POST /Country-List
 ```
 
 Respuesta
