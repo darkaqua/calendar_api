@@ -6,6 +6,8 @@ const express = require('express');
 
 const app = express();
 
+require(`./functions`);
+
 global.package = require('./package.json');
 try{
     global.config = require('./private/config.json');

@@ -2,7 +2,7 @@
   "name": "calendar_api",
   "version": "0.0.1",
   "scripts": {
-    "test": "node --use_strict main.js",
+    "test": "node main.js",
     "start on changes": "nodemon main.js"
   },
   "dependencies": {
