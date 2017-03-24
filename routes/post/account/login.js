@@ -57,7 +57,7 @@ const getLoginResponse = (email, password) => {
 
                 //Añadir nueva autentificación del usuario en la db
                 const query =
-                    `INSERT INTO UserSession(fk_user_uuid, client_id, client_token) 
+                    `INSERT INTO UserSession(fk_user_uuid, client_id, client_hash) 
                     VALUES (${sql_conn.escape(sql_result.uuid)},'${client_id}','${client_token.hash}')`;
                 sql_conn.query(
                     query,
