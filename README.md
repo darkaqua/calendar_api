@@ -88,50 +88,51 @@ Respuesta
 
 ## User
 
-### RetrieveCompanyList
+### Info
 
 ```
-POST /User/RetrieveCompanyList
+GET /User/Info
 ```
-
-Devuelve una lista con información de las compañias que pertenece el usuario
 
 Parametros
 
 | Nombre | Tipo | Descripción |
 |---|---|:--:|
-| client_id | String | - |
-| client_token | String | - |
+| uuid | UUID | UUID del usuario del que se quiere recuperar informacion |
 
 Respuesta
 
+(Respuesta desde el mismo usuario)
 ```Json
 {
-    "company_list": []
+    "valid": true,
+    "user_uuid": "96d211ac-a7dd-4301-983d-2b386c227a11",
+    "content": {
+        "name": "Pablo G.",
+        "username": "pagoru",
+        "telephone": "666777888",
+        "city": "",
+        "postal_code": "",
+        "email": "pagoru@gmail.com",
+        "register_timestamp": "2017-03-22T15:58:47.000Z",
+        "country": {
+            "name": "España",
+            "code": "ES"
+        }
+    }
 }
 ```
+
+(Respuesta desde otro usuario)
 ```Json
 {
-    "company_list": [
-        {
-            "uuid": "b297c4e5-e9e9-4595-badb-8a93d8853cf2",
-            "register_datetime": 1487865048,
-            "name": "Mecano el mecánico",
-            "description": "Tu mecánico de confianza",
-            "email": "ayuda@mecano-el-mecanico.com",
-            "whatsapp": "666777999",
-            "gps": "40.741895,-73.989308"
-        },
-        {
-            "uuid": "b297c4e5-e9e9-4595-badb-8a93d8853cf2",
-            "register_datetime": 1487865048,
-            "name": "Mecano el mecánico",
-            "description": "Tu mecánico de confianza",
-            "email": "ayuda@mecano-el-mecanico.com",
-            "whatsapp": "666777999",
-            "gps": "40.741895,-73.989308"
-        }
-    ]
+    "valid": true,
+    "user_uuid": "96d211ac-a7dd-4301-983d-2b386c227a11",
+    "content": {
+        "name": "afeafas",
+        "username": "pagoru2",
+        "register_timestamp": "2017-03-23T14:52:27.000Z"
+    }
 }
 ```
 
@@ -140,7 +141,7 @@ Respuesta
 ### Version
 
 ```
-POST /Info/Version
+GET /Info/Version
 ```
 
 Respuesta
@@ -156,7 +157,7 @@ Respuesta
 ### Country-List
 
 ```
-POST /Country-List
+GET /Country-List
 ```
 
 Respuesta
