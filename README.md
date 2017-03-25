@@ -16,7 +16,8 @@
         "host": "<url de la base de datos>",
         "user": "<nombre del usuario>",
         "password": "<contraseña>",
-        "database": "<nombre de la base de datos>"
+        "database": "<nombre de la base de datos>",
+        "multipleStatements": true|false
     }
 }
 ```
