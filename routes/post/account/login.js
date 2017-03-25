@@ -6,9 +6,11 @@ const crypt_utils = require('../../../utils/crypt-utils');
 const sql_source = require('../../../utils/sql-source');
 
 module.exports = (app, express, request, response, next) => {
-    const query = request.query;
+    const body = request.body;
 
-    getLoginResponse(query.email, query.password).then((res) => {
+    console.log(body);
+
+    getLoginResponse(body.email, body.password).then((res) => {
         response.json(res);
     });
 };
@@ -28,6 +30,7 @@ const getLoginResponse = (email, password) => {
 
         const sql_conn = sql_source.connection();
         const query = `SELECT uuid, hash FROM User WHERE email=${sql_conn.escape(email)}`;
+
         sql_conn.query(
             query,
             (sql_error, sql_results, sql_fields) => {
@@ -39,7 +42,7 @@ const getLoginResponse = (email, password) => {
 
                 const sql_result = sql_results[0];
                 //Comprueba que los resultados son vacios
-                if(sql_results.length === 0){
+                if(sql_result === undefined){
                     promise_result({ valid: false, message: `El correo electrónico no esta registrado` });
                     return;
                 }
