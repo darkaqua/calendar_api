@@ -100,7 +100,7 @@ module.exports = (app, express, request, response, next) => {
                         '1'
                         )`;
                     sql_conn.query(query,() => {
-                        response.json({ company_uuid: company_uuid });
+                        response.json({ valid: true, company_uuid: company_uuid });
                     });
                 }
             );
