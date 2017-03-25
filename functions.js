@@ -33,7 +33,7 @@ global.functions = {
                         return;
                     }
 
-                    promise_result({ valid: true });
+                    promise_result({ valid: true, user_uuid: sql_result.fk_user_uuid });
                 }
             );
         });
