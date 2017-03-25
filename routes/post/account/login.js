@@ -8,8 +8,6 @@ const sql_source = require('../../../utils/sql-source');
 module.exports = (app, express, request, response, next) => {
     const body = request.body;
 
-    console.log(body);
-
     getLoginResponse(body.email, body.password).then((res) => {
         response.json(res);
     });
