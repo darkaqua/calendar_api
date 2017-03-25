@@ -7,19 +7,19 @@ const sql_source = require('../../../utils/sql-source');
 const uuid = require('uuid');
 
 module.exports = (app, express, request, response, next) => {
-    const query = request.query;
+    const body = request.body;
 
     getRegisterResponse(
-        query.name,
-        query.username,
-        query.email,
-        query.re_email,
-        query.password,
-        query.re_password,
-        query.telephone,
-        query.city,
-        query.postal_code,
-        query.country
+        body.name,
+        body.username,
+        body.email,
+        body.re_email,
+        body.password,
+        body.re_password,
+        body.telephone,
+        body.city,
+        body.postal_code,
+        body.country
     ).then((res) => {
         response.json(res);
     });
@@ -35,7 +35,7 @@ const getRegisterResponse = (
     country) => {
     return new Promise((promise_result, promise_error) => {
         //Verificación del nombre
-        if(name === undefined || name.length <= 4){
+        if(name === undefined){
             promise_result({ valid: false, message: `El campo del nombre no puede estar vacio` });
             return;
         }
@@ -131,9 +131,9 @@ const getRegisterResponse = (
                             ${sql_conn.escape(uuid.v4())},
                             ${sql_conn.escape(name)},
                             ${sql_conn.escape(username)},
-                            ${sql_conn.escape(telephone)},
-                            ${sql_conn.escape(city)},
-                            ${sql_conn.escape(postal_code)},
+                            ${sql_conn.escape(telephone === undefined ? '' : telephone)},
+                            ${sql_conn.escape(city === undefined ? '' : city)},
+                            ${sql_conn.escape(postal_code === undefined ? '' : postal_code)},
                             ${sql_conn.escape(email)},
                             ${sql_conn.escape(crypt_utils.bcrypt_encrypt(password))},
                             ${sql_conn.escape(sql_result.country_id)}
