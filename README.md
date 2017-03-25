@@ -87,6 +87,43 @@ Respuesta
 }
 ```
 
+## Company
+
+### Create
+
+```
+POST /Company/Create
+```
+
+Parametros
+
+| - | Nombre | Tipo | Descripción |
+|---|---|---|---|
+| | name | String | Nombre de la compañia |
+| | description | String | Descripcion de la compañia |
+|-| email | String | Correo electronico de contacto de la compañia |
+|-| telephone | String | 10 chars máx |
+|-| address | String | Direccion de la compañia |
+|-| city | String | Limitado a lista de ciudades |
+|-| postal_code | String | 10 chars máx |
+| | country | String | Limitado a lista de paises |
+
+Respuesta
+
+```Json
+{
+    "valid": true,
+    "company_uuid": "4c06fdfc-fcdd-4ace-acc0-dd8774d5f273"
+}
+```
+
+```Json
+{
+    "valid": false,
+    "message": "No puedes crear mas compañias"
+}
+```
+
 ## User
 
 ### Info
