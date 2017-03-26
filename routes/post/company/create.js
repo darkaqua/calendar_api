@@ -93,10 +93,11 @@ module.exports = (app, express, request, response, next) => {
                         ${sql_conn.escape(body.postal_code === undefined ? '' : body.postal_code)},
                         ${sql_conn.escape(sql_result.country_id)}
                         );
-                        INSERT INTO UserLinkedCompany(fk_company_uuid, fk_user_uuid, fk_user_permission)
+                        INSERT INTO UserLinkedCompany(fk_company_uuid, fk_user_uuid, fk_user_permission, petition)
                         VALUES (
                         ${sql_conn.escape(company_uuid)},
                         ${sql_conn.escape(auth.user_uuid)},
+                        '1',
                         '1'
                         )`;
                     sql_conn.query(query,() => {
