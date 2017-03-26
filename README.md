@@ -110,29 +110,6 @@ Respuesta
 ]
 ```
 
-### Invite-User
-
-```
-POST /Company/Invite-User
-```
-
-Parametros
-
-| Nombre | Tipo | Descripción |
-|---|---|---|
-| company_uuid | UUID | Identificador de la compañia |
-| username | String | Nombre unico del usuario |
-| permission | int | Numero de permiso que se puede asignar |
-
-Respuesta
-
-```Json
-{
-    "valid": true,
-    "message": "Se ha enviado la solicitud a Test1!"
-}
-```
-
 ### Create
 
 ```
@@ -165,6 +142,31 @@ Respuesta
 {
     "valid": false,
     "message": "No puedes crear mas compañias"
+}
+```
+
+### Invitation
+
+#### Invite
+
+```
+POST /Company/Invitation/Invite
+```
+
+Parametros
+
+| Nombre | Tipo | Descripción |
+|---|---|---|
+| company_uuid | UUID | Identificador de la compañia |
+| username | String | Nombre unico del usuario |
+| permission | int | Numero de permiso que se puede asignar |
+
+Respuesta
+
+```Json
+{
+    "valid": true,
+    "message": "Se ha enviado la solicitud a Test1!"
 }
 ```
 
