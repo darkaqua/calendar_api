@@ -170,6 +170,28 @@ Respuesta
 }
 ```
 
+#### Response
+
+```
+POST /Company/Invitation/Response
+```
+
+Parametros
+
+| Nombre | Tipo | Descripción |
+|---|---|---|
+| company_uuid | UUID | Identificador de la compañia |
+| response | boolean | - |
+
+Response
+
+```JSON
+{
+    "valid": false,
+    "message": "La solcitud no existe"
+}
+```
+
 ## User
 
 ### Search
