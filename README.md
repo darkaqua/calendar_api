@@ -89,10 +89,31 @@ Respuesta
 
 ## Company
 
+### User-Permissions
+
+```
+POST /Company/User-Permissions
+```
+
+Respuesta
+
+```Json
+[
+    {
+        "id": 1,
+        "desription": "owner"
+    },
+    {
+        "id": 2,
+        "desription": "administrator"
+    }
+]
+```
+
 ### Invite-User
 
 ```
-POST /Invite/User
+POST /Company/Invite-User
 ```
 
 Parametros
