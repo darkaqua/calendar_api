@@ -16,9 +16,7 @@ global.functions = {
                 FROM UserSession 
                 WHERE valid='1' AND DATE_ADD(creation,INTERVAL 30 DAY) > NOW()
                 AND client_id=${sql_conn.escape(client_id)}`;
-            sql_conn.query(
-                query,
-                (sql_error, sql_results, sql_fields) => {
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                     const sql_result = sql_results[0];
                     const err_message = "No se ha podido verificar la autenticidad del cliente";
 
@@ -37,6 +35,33 @@ global.functions = {
                     promise_result({ valid: true, user_uuid: sql_result.fk_user_uuid });
                 }
             );
+        });
+    },
+    isUserUUIDRegistered: (uuid) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query = `SELECT COUNT(*) AS count FROM User WHERE uuid=${sql_conn.escape(uuid)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].count === 1);
+            });
+        });
+    },
+    isUsernameRegistered: (username) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query = `SELECT COUNT(*) AS count FROM User WHERE username=${sql_conn.escape(username)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].count === 1);
+            });
+        });
+    },
+    getUUIDFromUsername: (username) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query = `SELECT uuid FROM User WHERE username=${sql_conn.escape(username)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].uuid);
+            });
         });
     }
 };
