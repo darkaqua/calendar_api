@@ -170,6 +170,27 @@ Respuesta
 
 ## User
 
+### Search
+
+```
+GET /User/Search
+```
+
+Parametros
+
+| Nombre | Tipo | Descripción |
+|---|---|:--:|
+| username | String | Parte del nombre de usuario |
+
+Respuesta
+
+```Json
+[
+    "pagoru1",
+    "test1"
+]
+```
+
 ### Info
 
 ```
