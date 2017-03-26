@@ -16,8 +16,6 @@ module.exports = (app, express) => {
             let route_name  = (directory + /(.+)\.js/i.exec(name)[1]);
             let complete_route = `./routes/${route_name}`;
 
-            //TODO Verificar al usuario, menos por el login y el registro
-
             if(route_name.indexOf(`get`) !== -1){
                 app.get(`${route_name.replace('get', '')}`, (request, response, next) =>
                     require(complete_route)(app, express, request, response, next)

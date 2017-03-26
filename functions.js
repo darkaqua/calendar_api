@@ -14,7 +14,8 @@ global.functions = {
             const query =
                 `SELECT fk_user_uuid, client_hash 
                 FROM UserSession 
-                WHERE valid='1' AND client_id=${sql_conn.escape(client_id)}`;
+                WHERE valid='1' AND DATE_ADD(creation,INTERVAL 30 DAY) > NOW()
+                AND client_id=${sql_conn.escape(client_id)}`;
             sql_conn.query(
                 query,
                 (sql_error, sql_results, sql_fields) => {
