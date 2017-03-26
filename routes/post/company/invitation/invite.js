@@ -1,8 +1,8 @@
 /**
  * Created by Pablo on 26/03/2017.
  */
-const sql_source = require('../../../utils/sql-source');
-const validators = require('../../../utils/validators');
+const sql_source = require('../../../../utils/sql-source');
+const validators = require('../../../../utils/validators');
 
 module.exports = (app, express, request, response, next) => {
 
