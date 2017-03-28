@@ -22,23 +22,17 @@ module.exports = (app, express, request, response, next) => {
         }
 
         //Verificar que la compañia existe
-        global.functions.isCompanyRegisterd(query.uuid).then((isCompanyRegisterd) => {
-            if(!isCompanyRegisterd){
+        global.functions.isCompanyRegistered(query.uuid).then((isCompanyRegistered) => {
+            if(!isCompanyRegistered){
                 response.json({ valid: false, message: `La compañia no existe` });
                 return;
             }
 
             //Verificar que el usuario tiene permisos para editar la compañia
-            const sql_conn = sql_source.connection();
-            let sql_query =
-                `SELECT COUNT(*) AS count 
-                FROM UserLinkedCompany 
-                WHERE fk_company_uuid=${sql_conn.escape(query.uuid)}
-                AND fk_user_uuid=${sql_conn.escape(auth.user_uuid)}
-                AND can_edit='1'`;
-            sql_conn.query(sql_query, (sql_error, sql_results, sql_fields) => {
+            global.functions.hasUserPermissionToEditCompany(query.company_uuid, auth.user_uuid)
+                .then((hasUserPermissionToEditCompany) => {
 
-                if(sql_results[0].count === 0){
+                if(!hasUserPermissionToEditCompany){
                     response.json({ valid: false, message: `No tienes permisos suficientes sobre esta compañia` });
                     return;
                 }
