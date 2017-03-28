@@ -1,8 +1,8 @@
 /**
  * Created by Pablo on 25/03/2017.
  */
-const sql_source = require('../../../utils/sql-source');
-const validators = require('../../../utils/validators');
+const sql_source = require('../../utils/sql-source');
+const validators = require('../../utils/validators');
 const uuid = require('uuid');
 
 /*
@@ -93,7 +93,7 @@ module.exports = (app, express, request, response, next) => {
                         ${sql_conn.escape(body.postal_code === undefined ? '' : body.postal_code)},
                         ${sql_conn.escape(sql_result.country_id)}
                         );
-                        INSERT INTO UserLinkedCompany(fk_company_uuid, fk_user_uuid, fk_user_permission, petition)
+                        INSERT INTO UserLinkedCompany(fk_company_uuid, fk_user_uuid, can_edit, petition)
                         VALUES (
                         ${sql_conn.escape(company_uuid)},
                         ${sql_conn.escape(auth.user_uuid)},
@@ -127,7 +127,7 @@ const getNumberOfCompanies = (user_uuid) => {
             `SELECT count(*) AS count
             FROM UserLinkedCompany 
             WHERE fk_user_uuid=${sql_conn.escape(user_uuid)}
-            AND fk_user_permission='1'`;
+            AND can_edit='1'`;
         sql_conn.query(
             query,
             (sql_error, sql_results, sql_fields) => {
