@@ -16,15 +16,24 @@ module.exports = (app, express) => {
             let route_name  = (directory + /(.+)\.js/i.exec(name)[1]);
             let complete_route = `./routes/${route_name}`;
 
-            if(route_name.indexOf(`get`) !== -1){
-                app.get(`${route_name.replace('get', '')}`, (request, response, next) =>
-                    require(complete_route)(app, express, request, response, next)
-                );
-                return;
+            switch (route_name.split(`/`)[0]){
+                case `get`:
+                    app.get(`${route_name.replace('get', '')}`, (request, response, next) =>
+                        require(complete_route)(app, express, request, response, next)
+                    );
+                    break;
+                case `post`:
+                    app.post(`${route_name.replace('post', '')}`, (request, response, next) =>
+                        require(complete_route)(app, express, request, response, next)
+                    );
+                    break;
+                case `delete`:
+                    app.delete(`${route_name.replace('delete', '')}`, (request, response, next) =>
+                        require(complete_route)(app, express, request, response, next)
+                    );
+                    break;
             }
-            app.post(`${route_name.replace('post', '')}`, (request, response, next) =>
-                require(complete_route)(app, express, request, response, next)
-            );
+
         });
     };
     readRoutes();
