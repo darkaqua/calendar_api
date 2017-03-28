@@ -13,7 +13,7 @@ module.exports = (app, express, request, response, next) => {
 
         const sql_conn = sql_source.connection();
         const query =
-            `SELECT fk_company_uuid AS company_uuid, join_timestamp, fk_user_permission AS permission 
+            `SELECT fk_company_uuid AS company_uuid, join_timestamp, can_edit 
             FROM UserLinkedCompany 
             WHERE petition='0'
             AND fk_user_uuid=${sql_conn.escape(auth.user_uuid)}`;
