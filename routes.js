@@ -47,4 +47,6 @@ module.exports = (app, express) => {
     const basic_msg = { message:`${pkg.name} - versión ${pkg.version}`};
     app.get('*', (request, response, next) => response.json(basic_msg));
     app.post('*', (request, response, next) => response.json(basic_msg));
+    app.delete('*', (request, response, next) => response.json(basic_msg));
+    app.put('*', (request, response, next) => response.json(basic_msg));
 };
