@@ -32,6 +32,11 @@ module.exports = (app, express) => {
                         require(complete_route)(app, express, request, response, next)
                     );
                     break;
+                case `put`:
+                    app.put(`${route_name.replace('put', '')}`, (request, response, next) =>
+                        require(complete_route)(app, express, request, response, next)
+                    );
+                    break;
             }
 
         });
