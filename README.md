@@ -194,31 +194,8 @@ Response
 
 ## User
 
-### Search
-
 ```
-GET /User/Search
-```
-
-Parametros
-
-| Nombre | Tipo | Descripción |
-|---|---|:--:|
-| username | String | Parte del nombre de usuario |
-
-Respuesta
-
-```Json
-[
-    "pagoru1",
-    "test1"
-]
-```
-
-### Info
-
-```
-GET /User/Info
+GET /User
 ```
 
 Parametros
@@ -261,6 +238,28 @@ Respuesta
         "register_timestamp": "2017-03-23T14:52:27.000Z"
     }
 }
+```
+
+
+### Search
+
+```
+GET /User/Search
+```
+
+Parametros
+
+| Nombre | Tipo | Descripción |
+|---|---|:--:|
+| username | String | Parte del nombre de usuario |
+
+Respuesta
+
+```Json
+[
+    "pagoru1",
+    "test1"
+]
 ```
 
 ## Info
