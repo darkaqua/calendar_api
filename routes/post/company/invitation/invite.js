@@ -28,22 +28,13 @@ module.exports = (app, express, request, response, next) => {
             response.json({ valid: false, message: `El nombre de usuario no puede estar vacio` });
             return;
         }
-        //rango
-        if(body.permission === undefined){
-            response.json({ valid: false, message: `El numero de permiso no puede estar vacio` });
-            return;
-        }
-        if(isNaN(body.permission)){
-            response.json({ valid: false, message: `El numero de permiso no es un numero` });
-            return;
-        }
 
-        //Que la compañia exista y tenga rango owner de ella
+        //Que la compañia exista y pueda editar
         const sql_conn = sql_source.connection();
         const query =
             `SELECT COUNT(*) AS count 
             FROM UserLinkedCompany 
-            WHERE fk_user_permission='1' 
+            WHERE can_edit='1' 
             AND fk_user_uuid=${sql_conn.escape(auth.user_uuid)}
             AND fk_company_uuid=${sql_conn.escape(body.company_uuid)}`;
         sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
@@ -70,33 +61,32 @@ module.exports = (app, express, request, response, next) => {
                         return;
                     }
 
-                    //Verificar si el nivel de permiso existe
+                    //Que no tenga una peticion previa
+                    //Este en la misma compañia con el mismo rango (en caso de que tenga otro rango se asigna de forma automatica)
                     const query =
-                        `SELECT COUNT(*) AS count 
-                        FROM UserPermission 
-                        WHERE id=${sql_conn.escape(body.permission)}`;
+                        `SELECT uuid INTO @user_uuid FROM User WHERE username=${sql_conn.escape(body.username)};
+                        
+                        SELECT COUNT(*) as user_already 
+                        FROM UserLinkedCompany 
+                        WHERE fk_company_uuid=${sql_conn.escape(body.company_uuid)}
+                        AND fk_user_uuid=@user_uuid
+                        AND petition='1';
+                        
+                        INSERT INTO 
+                        UserLinkedCompany(fk_company_uuid, fk_user_uuid, can_edit) 
+                        VALUES(
+                        ${sql_conn.escape(body.company_uuid)},
+                        @user_uuid,
+                        ${sql_conn.escape(body.can_edit === true)}
+                        ) ON DUPLICATE KEY UPDATE 
+                        can_edit=${sql_conn.escape(body.can_edit === true)}`
                     sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
-
-                        if(sql_results[0].count === 0){
-                            response.json({ valid: false, message: `El numero de permiso no existe` });
-                            return;
-                        }
-
-                        //Que no tenga una peticion previa
-                        //Este en la misma compañia con el mismo rango (en caso de que tenga otro rango se asigna de forma automatica)
-                        const query =
-                            `INSERT INTO 
-                            UserLinkedCompany(fk_company_uuid, fk_user_uuid, fk_user_permission) 
-                            VALUES(
-                            ${sql_conn.escape(body.company_uuid)},
-                            (SELECT uuid FROM User WHERE username=${sql_conn.escape(body.username)}),
-                            ${sql_conn.escape(body.permission)}
-                            ) ON DUPLICATE KEY UPDATE 
-                            fk_user_permission=${sql_conn.escape(body.permission)}`;
-                        sql_conn.query(query, () => {
-                            response.json({ valid: true, message: `Se ha enviado la solicitud a ${body.username}!` });
+                        response.json({
+                            valid: true,
+                            message: sql_results[1][0].user_already === 1
+                                ? `Se han cambios los permisos de ${body.username}!`
+                                : `Se ha enviado la solicitud a ${body.username}!`
                         });
-
                     });
 
                 });
