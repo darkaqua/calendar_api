@@ -89,27 +89,6 @@ Respuesta
 
 ## Company
 
-### User-Permissions
-
-```
-POST /Company/User-Permissions
-```
-
-Respuesta
-
-```Json
-[
-    {
-        "id": 1,
-        "desription": "owner"
-    },
-    {
-        "id": 2,
-        "desription": "administrator"
-    }
-]
-```
-
 ### Create
 
 ```
@@ -149,6 +128,8 @@ Respuesta
 
 #### Invite
 
+Permite invitar a un usuario a una compañia
+
 ```
 POST /Company/Invitation/Invite
 ```
@@ -159,7 +140,7 @@ Parametros
 |---|---|---|
 | company_uuid | UUID | Identificador de la compañia |
 | username | String | Nombre unico del usuario |
-| permission | int | Numero de permiso que se puede asignar |
+| can_edit | bool | Si el usuario tiene permisos de edición o no |
 
 Respuesta
 
@@ -171,6 +152,8 @@ Respuesta
 ```
 
 #### Response
+
+Permite dar una respuesta a la posible invitación de la compañia
 
 ```
 POST /Company/Invitation/Response
@@ -193,6 +176,8 @@ Response
 ```
 
 ## User
+
+Devuele la información del usuario
 
 ```
 GET /User
@@ -243,6 +228,8 @@ Respuesta
 
 ### Search
 
+Permite buscar y crear un autocompletar de los nombres de usuario registrados
+
 ```
 GET /User/Search
 ```
@@ -259,6 +246,26 @@ Respuesta
 [
     "pagoru1",
     "test1"
+]
+```
+
+### Invitations
+
+Devuelve las invitaciones que tiene el usuario
+
+```
+GET /User/Invitations
+```
+
+Respuesta
+
+```Json
+[
+	{
+		"company_uuid": "4c06fdfc-fcdd-4ace-acc0-dd8774d5f273",
+		"join_timestamp": "2017-03-28T21:43:24.000Z",
+		"can_edit": 1
+	}
 ]
 ```
 
@@ -281,6 +288,8 @@ Respuesta
 ## Misc
 
 ### Country-List
+
+Devuelve una lista con los paises disponibles
 
 ```
 GET /Country-List
