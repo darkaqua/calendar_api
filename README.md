@@ -2,7 +2,7 @@
 
 # calendar project API (not secured at all)
 
-Leer [docs](./wiki) de la api.
+Leer [docs](https://github.com/darkaqua/calendar_api/wiki) de la api.
 
 Archivo de configuración `./private/config.json
 
