@@ -13,7 +13,7 @@ module.exports = (app, express, request, response, next) => {
         const query = request.query;
 
         if(query.uuid === undefined){
-            response.json({ valid: false, message: "LNo se ha introducido ninguna uuid" });
+            response.json({ valid: false, message: "No se ha introducido ninguna uuid" });
             return;
         }
 

@@ -113,7 +113,13 @@ global.functions = {
                 co.address AS company_address, 
                 co.postal_code AS company_pc, 
                 cu.name AS country_name, 
-                cu.code AS country_code
+                cu.code AS country_code,
+                (
+                    SELECT COUNT(*) 
+                    FROM UserLinkedCompany 
+                    WHERE fk_company_uuid=${sql_conn.escape(company_uuid)} 
+                    AND petition='1'
+                ) AS company_members
                 FROM Company co 
                 JOIN Country cu
                 ON cu.id=fk_country_id
@@ -129,6 +135,7 @@ global.functions = {
                     telephone: sql_result.company_telephone,
                     address: sql_result.company_address,
                     postal_code: sql_result.company_pc,
+                    members: sql_result.company_members,
                     country: {
                         name: sql_result.country_name,
                         code: sql_result.country_code
