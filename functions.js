@@ -99,5 +99,43 @@ global.functions = {
                 promise_result(sql_results[0].count === 1);
             });
         });
+    },
+    getCompanyInfo: (company_uuid) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT co.uuid AS company_uuid, 
+                co.register_timestamp AS company_register, 
+                co.name AS company_name, 
+                co.description AS company_description, 
+                co.email AS company_email, 
+                co.telephone AS company_telephone, 
+                co.address AS company_address, 
+                co.postal_code AS company_pc, 
+                cu.name AS country_name, 
+                cu.code AS country_code
+                FROM Company co 
+                JOIN Country cu
+                ON cu.id=fk_country_id
+                WHERE uuid=${sql_conn.escape(company_uuid)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                const sql_result = sql_results[0];
+                const company = {
+                    uuid: sql_result.company_uuid,
+                    register: sql_result.company_register,
+                    name: sql_result.company_name,
+                    description: sql_result.company_description,
+                    email: sql_result.company_email,
+                    telephone: sql_result.company_telephone,
+                    address: sql_result.company_address,
+                    postal_code: sql_result.company_pc,
+                    country: {
+                        name: sql_result.country_name,
+                        code: sql_result.country_code
+                    }
+                };
+                promise_result(company);
+            });
+        });
     }
 };
