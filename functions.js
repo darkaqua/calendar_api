@@ -119,7 +119,7 @@ global.functions = {
                     FROM UserLinkedCompany 
                     WHERE fk_company_uuid=${sql_conn.escape(company_uuid)} 
                     AND petition='1'
-                ) AS company_members
+                ) AS company_members_count
                 FROM Company co 
                 JOIN Country cu
                 ON cu.id=fk_country_id
@@ -135,7 +135,7 @@ global.functions = {
                     telephone: sql_result.company_telephone,
                     address: sql_result.company_address,
                     postal_code: sql_result.company_pc,
-                    members: sql_result.company_members,
+                    members_count: sql_result.company_members_count,
                     country: {
                         name: sql_result.country_name,
                         code: sql_result.country_code

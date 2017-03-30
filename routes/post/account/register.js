@@ -86,6 +86,15 @@ const getRegisterResponse = (
             promise_result({ valid: false, message: `Las contraseñas no coinciden` });
             return;
         }
+        //Verificación del telefono
+        if(telephone === undefined){
+            promise_result({ valid: false, message: `El campo del telefono no puede estar vacio` });
+            return;
+        }
+        if(telephone.length <= 8){
+            promise_result({ valid: false, message: `El telefono no puede ser tan corto` });
+            return;
+        }
         //Verificación del pais
         if(country === undefined){
             promise_result({ valid: false, message: `El campo del pais no puede estar vacio` });
