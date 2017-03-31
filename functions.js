@@ -144,5 +144,44 @@ global.functions = {
                 promise_result(company);
             });
         });
+    },
+    getUserInfo: (user_uuid, pub = false) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT u.name, u.username, u.telephone, u.city, 
+                u.postal_code, u.email, u.register_timestamp, 
+                c.name AS country_name, c.code AS country_code 
+                FROM User u 
+                JOIN Country c 
+                ON u.fk_country_id = c.id 
+                WHERE uuid=${sql_conn.escape(user_uuid)}`;
+            sql_conn.query(
+                query,
+                (sql_error, sql_results, sql_fields) => {
+                    let sql_result = sql_results[0];
+                    //El contenido del usuario es publico
+                    if(!pub){
+                        const content = {
+                            uuid: user_uuid,
+                            name: sql_result.name,
+                            username: sql_result.username,
+                            register_timestamp: sql_result.register_timestamp
+                        };
+                        promise_result(content);
+                        return;
+                    }
+                    //El contenido del usuario es privado
+                    const country = {
+                        name: sql_result.country_name,
+                        code: sql_result.country_code
+                    };
+                    sql_result.uuid = user_uuid;
+                    sql_result.country_name = sql_result.country_code = undefined;
+                    sql_result.country = country;
+                    promise_result(sql_result);
+                }
+            );
+        });
     }
 };
