@@ -25,3 +25,8 @@ try{
 } catch(e){
     console.log(`No se encuentra el archivo de configuración... :(`);
 }
+
+global.functions.getUserQuota('96d211ac-a7dd-4301-983d-2b386c227a11')
+    .then(console.log);
+global.functions.getUserMaxQuota('96d211ac-a7dd-4301-983d-2b386c227a11')
+    .then(console.log);

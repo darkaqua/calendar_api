@@ -1,0 +1,732 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2017-04-05T01:46:36.004Z",
+	"__export_source": "insomnia.desktop.app:v4.2.14",
+	"resources": [
+		{
+			"_id": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
+			"parentId": null,
+			"modified": 1490797967454,
+			"created": 1490224614027,
+			"name": "calendar_api",
+			"description": "",
+			"certificates": [],
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_4c52ac561de74d9f8099efb9d94d5999",
+			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
+			"modified": 1490797967452,
+			"created": 1490224620484,
+			"name": "Base Environment",
+			"data": {
+				"base_url": "http://localhost:22322/",
+				"client_id_": "664041eaab8c84d2571737de5688b731699622a3d5537c1008fc82125f62c522",
+				"client_token_": "b0fe76b302bc4bde0317d34ace5c444148950497941a575861f51513b9c82cd1",
+				"client_id": "33e921e00d69ce18a6143285756b01d93a178db59708d2c1290d915487e3c647",
+				"client_token": "4e8b107d9f5ba114a5a3eaa1b2513b2b7ddd16d24e874d9205137a52eae40bab"
+			},
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
+			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
+			"modified": 1490797967451,
+			"created": 1490224844364,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_8faeda91e6b94521807ca01285f26010",
+			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
+			"modified": 1490797967449,
+			"created": 1490282210402,
+			"name": "GET",
+			"environment": {},
+			"metaSortKey": -1490282210402,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_dd2362a3e95045c189871ca74af7ee28",
+			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
+			"modified": 1490797967446,
+			"created": 1490282263332,
+			"name": "POST",
+			"environment": {},
+			"metaSortKey": -1490282263332,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
+			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
+			"modified": 1490797967444,
+			"created": 1490738229698,
+			"name": "DELETE",
+			"environment": {},
+			"metaSortKey": -1490738229698,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
+			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
+			"modified": 1490797967442,
+			"created": 1490738831274,
+			"name": "PUT",
+			"environment": {},
+			"metaSortKey": -1490738831274,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_d0bda85404464c9ebf707e095b259510",
+			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
+			"modified": 1490797967439,
+			"created": 1490282221577,
+			"name": "Info",
+			"environment": {
+				"base_url": "{{base_url}}info/"
+			},
+			"metaSortKey": -1490282221577,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_2002fa0e78a840f79562943d384b4a78",
+			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
+			"modified": 1490797967437,
+			"created": 1490458858107,
+			"name": "User",
+			"environment": {
+				"base_url": "{{base_url}}user/"
+			},
+			"metaSortKey": -1490458858107,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_c2d196499cde425ba458c0135aeefeeb",
+			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
+			"modified": 1490797967435,
+			"created": 1490541989204,
+			"name": "Company",
+			"environment": {
+				"base_url": "{{base_url}}company/"
+			},
+			"metaSortKey": -1490541989204,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_5b5c899e629b4f48904f17f7ee4e2286",
+			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
+			"modified": 1490797967434,
+			"created": 1490282312855,
+			"url": "{{base_url}}Country-List",
+			"name": "Country-List",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "",
+					"value": ""
+				}
+			],
+			"authentication": {
+				"username": "pagoru",
+				"password": "rwewr",
+				"disabled": false
+			},
+			"metaSortKey": -1490282312855,
+			"_type": "request"
+		},
+		{
+			"_id": "req_a481f3736dd24639aaf82ec9022c52a5",
+			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
+			"modified": 1490797967431,
+			"created": 1490367415464,
+			"url": "{{base_url}}test",
+			"name": "Test",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [
+				{
+					"name": "",
+					"value": ""
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "8c9767cfbda9a62a3fd67227b6ce9584334776017e9018572aec5823e1b62f09"
+				},
+				{
+					"name": "client_token",
+					"value": "8043fb9510364fc4d142fd4e4640d7154fc822de57ccc3c511a326fbb92960d8",
+					"disabled": false
+				}
+			],
+			"authentication": {
+				"username": "",
+				"password": "",
+				"disabled": false
+			},
+			"metaSortKey": -1490367415464,
+			"_type": "request"
+		},
+		{
+			"_id": "req_fb010ff933ea4457a0c19b59a530ce4a",
+			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
+			"modified": 1490797967429,
+			"created": 1490457364405,
+			"url": "{{base_url}}user",
+			"name": "User",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [
+				{
+					"name": "uuid",
+					"value": "290b6dc2-ce74-48e9-ace2-ac9fdbd5b5a8"
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490367415514,
+			"_type": "request"
+		},
+		{
+			"_id": "req_9383a520317a42a1abe38eb7ed24cdd1",
+			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
+			"modified": 1490888527257,
+			"created": 1490888149190,
+			"url": "{{base_url}}company",
+			"name": "Company",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [
+				{
+					"name": "uuid",
+					"value": "82542ca3-42c6-4764-83ef-566f7c344bec"
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490367415513,
+			"_type": "request"
+		},
+		{
+			"_id": "fld_dd30c4853d1045a2b5f93d7614c8d778",
+			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
+			"modified": 1490797967425,
+			"created": 1490282271677,
+			"name": "Account",
+			"environment": {
+				"base_url": "{{base_url}}account/"
+			},
+			"metaSortKey": -1490282271677,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_c15709bec3d8460aad574bef6e864a7a",
+			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
+			"modified": 1490797967422,
+			"created": 1490461467158,
+			"name": "Company",
+			"environment": {
+				"base_url": "{{base_url}}company/"
+			},
+			"metaSortKey": -1490461467158,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_c05ee1bfdc64411ca2c83394a19f6aee",
+			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
+			"modified": 1490893876122,
+			"created": 1490893783033,
+			"name": "User",
+			"environment": {
+				"base_url": "{{base_url}}user/"
+			},
+			"metaSortKey": -1490893783033,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_b12b3273476a4b96bb831f2e55b8e6ff",
+			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
+			"modified": 1490797967420,
+			"created": 1490461634376,
+			"url": "{{base_url}}test",
+			"name": "Test",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"<--2-->\": \"<--2-->\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}",
+					"disabled": false
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {
+				"username": "",
+				"password": "",
+				"disabled": false
+			},
+			"metaSortKey": -1490461621154,
+			"_type": "request"
+		},
+		{
+			"_id": "fld_d41d40daa29c4512850c28c067c78a8c",
+			"parentId": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
+			"modified": 1490797967418,
+			"created": 1490741321355,
+			"name": "company",
+			"environment": {
+				"base_url": "{{base_url}}company/"
+			},
+			"metaSortKey": -1490741321355,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_4e3aff557cea461398771b6870989b7e",
+			"parentId": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
+			"modified": 1490797967417,
+			"created": 1490738251098,
+			"url": "{{base_url}}company",
+			"name": "Company",
+			"method": "DELETE",
+			"body": {
+				"text": ""
+			},
+			"parameters": [
+				{
+					"name": "uuid",
+					"value": "4c06fdfc-fcdd-4ace-acc0-dd8774d5f273"
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490548331704,
+			"_type": "request"
+		},
+		{
+			"_id": "fld_5e2e8cb3ae4844debbfb2cbdc5593513",
+			"parentId": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
+			"modified": 1491329630243,
+			"created": 1491329618555,
+			"name": "company",
+			"environment": {
+				"base_url": "{{base_url}}company/"
+			},
+			"metaSortKey": -1491329618555,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_058cbfdc00f74c46b9da9d00368b26c5",
+			"parentId": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
+			"modified": 1490883407357,
+			"created": 1490461582238,
+			"url": "{{base_url}}company",
+			"name": "Company",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Mario el fontanero2\",\n\t\"description\": \"El fonasdasdasdasd\",\n\t\"country\": \"ES\"\n}"
+			},
+			"parameters": [
+				{
+					"name": "",
+					"value": ""
+				}
+			],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "client_id",
+					"value": "{{client_id}}",
+					"disabled": false
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}",
+					"disabled": false
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490546569181,
+			"_type": "request"
+		},
+		{
+			"_id": "req_193ceb79e20c4e98988cf96a701b282f",
+			"parentId": "fld_d0bda85404464c9ebf707e095b259510",
+			"modified": 1490797967413,
+			"created": 1490231280018,
+			"url": "{{base_url}}version",
+			"name": "Version",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1490231280018,
+			"_type": "request"
+		},
+		{
+			"_id": "req_684d263a8d774a308bfe926894e4fbf8",
+			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
+			"modified": 1490797967410,
+			"created": 1490547217466,
+			"url": "{{base_url}}invitations",
+			"name": "Invitations",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490543939910,
+			"_type": "request"
+		},
+		{
+			"_id": "req_83f66f4669114c74ad747c113b295bb8",
+			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
+			"modified": 1490883422930,
+			"created": 1490883051933,
+			"url": "{{base_url}}companies",
+			"name": "Companies",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490543939909,
+			"_type": "request"
+		},
+		{
+			"_id": "req_98a170488e884fa9b19f032fd78a3a2a",
+			"parentId": "fld_c2d196499cde425ba458c0135aeefeeb",
+			"modified": 1490971206470,
+			"created": 1490971144524,
+			"url": "{{base_url}}users",
+			"name": "Users",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [
+				{
+					"name": "uuid",
+					"value": "0aa7b5a2-2d91-4636-82f2-adbd27ec9a73"
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490543939909,
+			"_type": "request"
+		},
+		{
+			"_id": "req_48ef443fc5774c98bb686849d482e230",
+			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
+			"modified": 1490797967407,
+			"created": 1490224838667,
+			"url": "{{base_url}}login",
+			"name": "Login",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\": \"pagoru3@gmail.com\",\n\t\"password\": \"123456789\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {
+				"username": "",
+				"password": "",
+				"disabled": false
+			},
+			"metaSortKey": -1490224838716,
+			"_type": "request"
+		},
+		{
+			"_id": "req_53ba3c40bcd64f699dcb6ef526090aae",
+			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
+			"modified": 1490797967405,
+			"created": 1490226615900,
+			"url": "{{base_url}}register",
+			"name": "Register",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Test1\",\n\t\"username\": \"test1\",\n\t\"email\": \"pagoru3@gmail.com\",\n\t\"re_email\": \"pagoru3@gmail.com\",\n\t\"password\": \"123456789\",\n\t\"re_password\": \"123456789\",\n\t\"country\": \"ES\"\n\t\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {
+				"username": "",
+				"password": "",
+				"disabled": false
+			},
+			"metaSortKey": -1490224838666,
+			"_type": "request"
+		},
+		{
+			"_id": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
+			"parentId": "fld_c15709bec3d8460aad574bef6e864a7a",
+			"modified": 1490797967403,
+			"created": 1490546500790,
+			"name": "Invitation",
+			"environment": {
+				"base_url": "{{base_url}}invitation/"
+			},
+			"metaSortKey": -1490546500790,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_ee1dd72466a946f29dfe38baeeef890b",
+			"parentId": "fld_c05ee1bfdc64411ca2c83394a19f6aee",
+			"modified": 1490978068062,
+			"created": 1490543939860,
+			"url": "{{base_url}}search",
+			"name": "Search",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"search\": \"1\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490543939860,
+			"_type": "request"
+		},
+		{
+			"_id": "req_3099d759b4ca4e88ba3beb7700ffb3a1",
+			"parentId": "fld_d41d40daa29c4512850c28c067c78a8c",
+			"modified": 1490797967400,
+			"created": 1490741368730,
+			"url": "{{base_url}}user",
+			"name": "user",
+			"method": "DELETE",
+			"body": {
+				"text": ""
+			},
+			"parameters": [
+				{
+					"name": "user_uuid",
+					"value": "0c79ce19-a26d-48d3-bbf5-0ac860c1bac8"
+				},
+				{
+					"name": "company_uuid",
+					"value": "0aa7b5a2-2d91-4636-82f2-adbd27ec9a73"
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490741368730,
+			"_type": "request"
+		},
+		{
+			"_id": "req_3555dfde7d9745a796a5cf41a4680ba8",
+			"parentId": "fld_5e2e8cb3ae4844debbfb2cbdc5593513",
+			"modified": 1491330191974,
+			"created": 1491329676518,
+			"url": "{{base_url}}group",
+			"name": "Group",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"82542ca3-42c6-4764-83ef-566f7c344bec\",\n\t\"name\": \"group test 1\",\n\t\"description\": \"test descripcion\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1491329676518,
+			"_type": "request"
+		},
+		{
+			"_id": "req_acfcf11fa5dc44ed8a479fafeb861dcd",
+			"parentId": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
+			"modified": 1490797967399,
+			"created": 1490539727548,
+			"url": "{{base_url}}invite",
+			"name": "Invite",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"4c06fdfc-fcdd-4ace-acc0-dd8774d5f273\",\n\t\"username\": \"pagoru1\",\n\t\"can_edit\": false\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490539727548,
+			"_type": "request"
+		},
+		{
+			"_id": "req_708bdff959304e20b4ef4954da70f3ac",
+			"parentId": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
+			"modified": 1490797967391,
+			"created": 1490548331654,
+			"url": "{{base_url}}response",
+			"name": "Response",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"4c06fdfc-fcdd-4ace-acc0-dd8774d5f273\",\n\t\"response\": true\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490548331654,
+			"_type": "request"
+		}
+	]
+}

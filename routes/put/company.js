@@ -25,8 +25,8 @@ module.exports = (app, express, request, response, next) => {
             return;
         }
 
-        global.functions.getUserQuota(auth.user_uuid).then((user_quota) => {
-            if(user_quota.company_count === 0){
+        global.functions.getUserQuota(auth.user_uuid).then(user_quota => {
+            if(user_quota.company_count <= 0){
                 //Excede el numero de compañias que puede tener
                 response.json({valid: false, message: `No puedes crear mas compañias`});
                 return;
