@@ -9,9 +9,9 @@ const uuid = require('uuid');
 --------------------------------------------------------
 ---------------Planes----Pagos unicos-------------------
 --------------------------------------------------------
-PLAN 1 - FREE -> 1 compañia, 1 calendario, max 3 usuarios
-PLAN 2 - $$   -> 1 compañia, 10 calendarios, max 100 usuario
-PLAN 3 - $$$  -> 1 compañia, infintos calendarios y usuarios
+PLAN 1 - FREE -> 1 compañia, 1 grupo, 1 calendario, max 3 usuarios
+PLAN 2 - $$   -> 1 compañia, 5 grupos, 10 calendarios, max 100 usuario
+PLAN 3 - $$$  -> 1 compañia, infinitos grupos, infintos calendarios y usuarios
 --------------------------------------------------------
 1 compañia -> FREE
 compañia++ -> $
@@ -25,8 +25,8 @@ module.exports = (app, express, request, response, next) => {
             return;
         }
 
-        canGetMoreCompanies(auth.user_uuid).then((canGetMoreCompanies) => {
-            if(!canGetMoreCompanies){
+        global.functions.getUserQuota(auth.user_uuid).then(user_quota => {
+            if(user_quota.company_count <= 0){
                 //Excede el numero de compañias que puede tener
                 response.json({valid: false, message: `No puedes crear mas compañias`});
                 return;
@@ -107,48 +107,5 @@ module.exports = (app, express, request, response, next) => {
             );
         });
 
-    });
-};
-
-const canGetMoreCompanies = (user_uuid) => {
-    return new Promise((promise_result, promise_error) => {
-        getMaxNumberOfCompanies(user_uuid).then((maxNumberOfCompanies) => {
-            getNumberOfCompanies(user_uuid).then((numberOfCompanies) => {
-                promise_result(numberOfCompanies !== maxNumberOfCompanies);
-            });
-        });
-    });
-};
-
-const getNumberOfCompanies = (user_uuid) => {
-    return new Promise((promise_result, promise_error) => {
-        const sql_conn = sql_source.connection();
-        const query =
-            `SELECT count(*) AS count
-            FROM UserLinkedCompany 
-            WHERE fk_user_uuid=${sql_conn.escape(user_uuid)}
-            AND can_edit='1'`;
-        sql_conn.query(
-            query,
-            (sql_error, sql_results, sql_fields) => {
-                promise_result(sql_results[0].count)
-            }
-        );
-    });
-};
-
-const getMaxNumberOfCompanies = (user_uuid) => {
-    return new Promise((promise_result, promise_error) => {
-        const sql_conn = sql_source.connection();
-        const query =
-            `SELECT count(*) AS count 
-            FROM UserPayment 
-            WHERE fk_user_uuid=${sql_conn.escape(user_uuid)}`;
-        sql_conn.query(
-            query,
-            (sql_error, sql_results, sql_fields) => {
-                promise_result(sql_results[0].count + 1)
-            }
-        );
     });
 };

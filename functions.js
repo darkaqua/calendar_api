@@ -4,7 +4,7 @@
 const sql_source = require('./utils/sql-source');
 const crypt_utils = require('./utils/crypt-utils');
 
-global.functions = {
+const e = global.functions = {
     authRequest: (request) => {
         return new Promise((promise_result, promise_error) => {
             const client_id = request.headers.client_id;
@@ -182,6 +182,76 @@ global.functions = {
                     promise_result(sql_result);
                 }
             );
+        });
+    },
+    getUserQuota: (user_uuid) => {
+        return new Promise((promise_result, promise_error) => {
+            e.getUserMaxQuota(user_uuid).then(user_max_quota => {
+                e.getUserCurrentQuota(user_uuid).then(user_current_quota => {
+                    promise_result({
+                        company_count: user_max_quota.company_count - user_current_quota.company_count,
+                        group_count: user_max_quota.group_count - user_current_quota.group_count,
+                        user_count: user_max_quota.user_count - user_current_quota.user_count
+                    });
+                });
+            });
+        });
+    },
+    getUserMaxQuota: (user_uuid) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT COALESCE(SUM(company_count), (SELECT company_count FROM PaymentOption WHERE id=1)) AS company_count, 
+                COALESCE(SUM(group_count), (SELECT group_count FROM PaymentOption WHERE id=1)) AS group_count, 
+                COALESCE(SUM(user_count), (SELECT user_count FROM PaymentOption WHERE id=1)) AS user_count 
+                FROM PaymentOption 
+                JOIN UserPayment 
+                ON fk_payment_option_id=id
+                WHERE DATE_ADD(timestamp, INTERVAL 30 DAY) > NOW()
+                AND fk_user_uuid=${sql_conn.escape(user_uuid)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0])
+            });
+        });
+    },
+    getUserCurrentQuota: (user_uuid) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `#Recuento de compañias que tiene el usuario
+                SELECT count(*) AS company_count
+                FROM UserLinkedCompany 
+                WHERE fk_user_uuid=${sql_conn.escape(user_uuid)}
+                AND can_edit='1';
+                #Recuento de Grupos asociados al usuario
+                SELECT count(*) AS group_count
+                FROM UserLinkedCompanyGroup 
+                WHERE fk_user_uuid=${sql_conn.escape(user_uuid)}
+                AND can_edit='1';
+                #Recuento de usuarios a cargo de las compañias del usuario
+                SELECT COUNT(*) - 
+                (
+                    SELECT COUNT(*) 
+                    FROM UserLinkedCompany 
+                    WHERE can_edit='1' 
+                    AND fk_user_uuid=${sql_conn.escape(user_uuid)}
+                ) AS user_count 
+                FROM UserLinkedCompany 
+                WHERE fk_company_uuid 
+                IN 
+                (
+                    SELECT fk_company_uuid 
+                    FROM UserLinkedCompany 
+                    WHERE can_edit='1' 
+                    AND fk_user_uuid=${sql_conn.escape(user_uuid)}
+                );`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result({
+                    company_count: sql_results[0][0].company_count,
+                    group_count: sql_results[1][0].group_count,
+                    user_count: sql_results[2][0].user_count
+                });
+            });
         });
     }
 };
