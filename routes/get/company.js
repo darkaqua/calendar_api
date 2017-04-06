@@ -31,7 +31,7 @@ module.exports = (app, express, request, response, next) => {
                 return;
             }
 
-            global.functions.getCompanyInfo(query.uuid).then((company) => {
+            global.functions.getCompanyInfo(query.uuid, auth.user_uuid).then((company) => {
                 response.json({ valid: true, content: company });
             });
 

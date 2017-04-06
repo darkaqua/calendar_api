@@ -100,47 +100,35 @@ const e = global.functions = {
             });
         });
     },
-    getCompanyInfo: (company_uuid) => {
+    getCompanyInfo: (company_uuid, user_uuid) => {
         return new Promise((promise_result, promise_error) => {
             const sql_conn = sql_source.connection();
             const query =
-                `SELECT co.uuid AS company_uuid, 
-                co.register_timestamp AS company_register, 
-                co.name AS company_name, 
-                co.description AS company_description, 
-                co.email AS company_email, 
-                co.telephone AS company_telephone, 
-                co.address AS company_address, 
-                co.postal_code AS company_pc, 
-                cu.name AS country_name, 
-                cu.code AS country_code,
+                `SELECT uuid, register_timestamp AS register, name, 
+                description, email, telephone, address, postal_code, 
                 (
                     SELECT COUNT(*) 
                     FROM UserLinkedCompany 
                     WHERE fk_company_uuid=${sql_conn.escape(company_uuid)} 
                     AND petition='1'
-                ) AS company_members_count
-                FROM Company co 
-                JOIN Country cu
-                ON cu.id=fk_country_id
-                WHERE uuid=${sql_conn.escape(company_uuid)}`;
+                ) AS members_count
+                FROM Company 
+                WHERE uuid=${sql_conn.escape(company_uuid)};
+                SELECT can_edit 
+                FROM UserLinkedCompany 
+                WHERE fk_company_uuid=${sql_conn.escape(company_uuid)} 
+                AND fk_user_uuid=${sql_conn.escape(user_uuid)};
+                SELECT name, code
+                FROM Country
+                WHERE id=(
+                    SELECT fk_country_id
+                    FROM Company
+                    WHERE uuid=${sql_conn.escape(company_uuid)}
+                );`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
-                const sql_result = sql_results[0];
-                const company = {
-                    uuid: sql_result.company_uuid,
-                    register: sql_result.company_register,
-                    name: sql_result.company_name,
-                    description: sql_result.company_description,
-                    email: sql_result.company_email,
-                    telephone: sql_result.company_telephone,
-                    address: sql_result.company_address,
-                    postal_code: sql_result.company_pc,
-                    members_count: sql_result.company_members_count,
-                    country: {
-                        name: sql_result.country_name,
-                        code: sql_result.country_code
-                    }
-                };
+                let company = sql_results[0][0];
+                company.can_edit = sql_results[1][0].can_edit;
+                company.country = sql_results[2][0];
                 promise_result(company);
             });
         });
