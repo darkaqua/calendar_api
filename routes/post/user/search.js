@@ -14,7 +14,6 @@ module.exports = (app, express, request, response, next) => {
         const sql_conn = sql_source.connection();
         const username = sql_conn.escape(request.body.search).replace(/'/g, '');
         const query = `SELECT uuid, username FROM User WHERE username LIKE '%${username}%'`;
-        console.log(query);
         sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
             response.json(sql_results.map((un) => un));
         });

@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-04-05T01:46:36.004Z",
+	"__export_date": "2017-04-11T16:33:26.857Z",
 	"__export_source": "insomnia.desktop.app:v4.2.14",
 	"resources": [
 		{
 			"_id": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
 			"parentId": null,
-			"modified": 1490797967454,
+			"modified": 1491919372215,
 			"created": 1490224614027,
 			"name": "calendar_api",
 			"description": "",
@@ -17,7 +17,7 @@
 		{
 			"_id": "env_4c52ac561de74d9f8099efb9d94d5999",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1490797967452,
+			"modified": 1491919372211,
 			"created": 1490224620484,
 			"name": "Base Environment",
 			"data": {
@@ -32,7 +32,7 @@
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1490797967451,
+			"modified": 1491919372206,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -41,7 +41,7 @@
 		{
 			"_id": "fld_8faeda91e6b94521807ca01285f26010",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1490797967449,
+			"modified": 1491919372194,
 			"created": 1490282210402,
 			"name": "GET",
 			"environment": {},
@@ -51,7 +51,7 @@
 		{
 			"_id": "fld_dd2362a3e95045c189871ca74af7ee28",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1490797967446,
+			"modified": 1491919372138,
 			"created": 1490282263332,
 			"name": "POST",
 			"environment": {},
@@ -61,7 +61,7 @@
 		{
 			"_id": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1490797967444,
+			"modified": 1491919372032,
 			"created": 1490738229698,
 			"name": "DELETE",
 			"environment": {},
@@ -71,7 +71,7 @@
 		{
 			"_id": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1490797967442,
+			"modified": 1491919372027,
 			"created": 1490738831274,
 			"name": "PUT",
 			"environment": {},
@@ -81,7 +81,7 @@
 		{
 			"_id": "fld_d0bda85404464c9ebf707e095b259510",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1490797967439,
+			"modified": 1491919372021,
 			"created": 1490282221577,
 			"name": "Info",
 			"environment": {
@@ -93,7 +93,7 @@
 		{
 			"_id": "fld_2002fa0e78a840f79562943d384b4a78",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1490797967437,
+			"modified": 1491919372000,
 			"created": 1490458858107,
 			"name": "User",
 			"environment": {
@@ -105,7 +105,7 @@
 		{
 			"_id": "fld_c2d196499cde425ba458c0135aeefeeb",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1490797967435,
+			"modified": 1491919371937,
 			"created": 1490541989204,
 			"name": "Company",
 			"environment": {
@@ -117,7 +117,7 @@
 		{
 			"_id": "req_5b5c899e629b4f48904f17f7ee4e2286",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1490797967434,
+			"modified": 1491919371842,
 			"created": 1490282312855,
 			"url": "{{base_url}}Country-List",
 			"name": "Country-List",
@@ -143,7 +143,7 @@
 		{
 			"_id": "req_a481f3736dd24639aaf82ec9022c52a5",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1490797967431,
+			"modified": 1491919371837,
 			"created": 1490367415464,
 			"url": "{{base_url}}test",
 			"name": "Test",
@@ -179,7 +179,7 @@
 		{
 			"_id": "req_fb010ff933ea4457a0c19b59a530ce4a",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1490797967429,
+			"modified": 1491919371832,
 			"created": 1490457364405,
 			"url": "{{base_url}}user",
 			"name": "User",
@@ -210,7 +210,7 @@
 		{
 			"_id": "req_9383a520317a42a1abe38eb7ed24cdd1",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1490888527257,
+			"modified": 1491919371826,
 			"created": 1490888149190,
 			"url": "{{base_url}}company",
 			"name": "Company",
@@ -241,7 +241,7 @@
 		{
 			"_id": "fld_dd30c4853d1045a2b5f93d7614c8d778",
 			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
-			"modified": 1490797967425,
+			"modified": 1491919371821,
 			"created": 1490282271677,
 			"name": "Account",
 			"environment": {
@@ -253,7 +253,7 @@
 		{
 			"_id": "fld_c15709bec3d8460aad574bef6e864a7a",
 			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
-			"modified": 1490797967422,
+			"modified": 1491919371815,
 			"created": 1490461467158,
 			"name": "Company",
 			"environment": {
@@ -265,7 +265,7 @@
 		{
 			"_id": "fld_c05ee1bfdc64411ca2c83394a19f6aee",
 			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
-			"modified": 1490893876122,
+			"modified": 1491919371803,
 			"created": 1490893783033,
 			"name": "User",
 			"environment": {
@@ -277,7 +277,7 @@
 		{
 			"_id": "req_b12b3273476a4b96bb831f2e55b8e6ff",
 			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
-			"modified": 1490797967420,
+			"modified": 1491919371749,
 			"created": 1490461634376,
 			"url": "{{base_url}}test",
 			"name": "Test",
@@ -313,9 +313,9 @@
 		{
 			"_id": "fld_d41d40daa29c4512850c28c067c78a8c",
 			"parentId": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
-			"modified": 1490797967418,
+			"modified": 1491928161268,
 			"created": 1490741321355,
-			"name": "company",
+			"name": "Company",
 			"environment": {
 				"base_url": "{{base_url}}company/"
 			},
@@ -325,7 +325,7 @@
 		{
 			"_id": "req_4e3aff557cea461398771b6870989b7e",
 			"parentId": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
-			"modified": 1490797967417,
+			"modified": 1491919371616,
 			"created": 1490738251098,
 			"url": "{{base_url}}company",
 			"name": "Company",
@@ -356,9 +356,9 @@
 		{
 			"_id": "fld_5e2e8cb3ae4844debbfb2cbdc5593513",
 			"parentId": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
-			"modified": 1491329630243,
+			"modified": 1491928169132,
 			"created": 1491329618555,
-			"name": "company",
+			"name": "Company",
 			"environment": {
 				"base_url": "{{base_url}}company/"
 			},
@@ -368,7 +368,7 @@
 		{
 			"_id": "req_058cbfdc00f74c46b9da9d00368b26c5",
 			"parentId": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
-			"modified": 1490883407357,
+			"modified": 1491919371607,
 			"created": 1490461582238,
 			"url": "{{base_url}}company",
 			"name": "Company",
@@ -406,7 +406,7 @@
 		{
 			"_id": "req_193ceb79e20c4e98988cf96a701b282f",
 			"parentId": "fld_d0bda85404464c9ebf707e095b259510",
-			"modified": 1490797967413,
+			"modified": 1491919371602,
 			"created": 1490231280018,
 			"url": "{{base_url}}version",
 			"name": "Version",
@@ -423,7 +423,7 @@
 		{
 			"_id": "req_684d263a8d774a308bfe926894e4fbf8",
 			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
-			"modified": 1490797967410,
+			"modified": 1491919371598,
 			"created": 1490547217466,
 			"url": "{{base_url}}invitations",
 			"name": "Invitations",
@@ -449,7 +449,7 @@
 		{
 			"_id": "req_83f66f4669114c74ad747c113b295bb8",
 			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
-			"modified": 1490883422930,
+			"modified": 1491919371593,
 			"created": 1490883051933,
 			"url": "{{base_url}}companies",
 			"name": "Companies",
@@ -475,7 +475,7 @@
 		{
 			"_id": "req_98a170488e884fa9b19f032fd78a3a2a",
 			"parentId": "fld_c2d196499cde425ba458c0135aeefeeb",
-			"modified": 1490971206470,
+			"modified": 1491919371587,
 			"created": 1490971144524,
 			"url": "{{base_url}}users",
 			"name": "Users",
@@ -506,7 +506,7 @@
 		{
 			"_id": "req_48ef443fc5774c98bb686849d482e230",
 			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
-			"modified": 1490797967407,
+			"modified": 1491919371582,
 			"created": 1490224838667,
 			"url": "{{base_url}}login",
 			"name": "Login",
@@ -533,7 +533,7 @@
 		{
 			"_id": "req_53ba3c40bcd64f699dcb6ef526090aae",
 			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
-			"modified": 1490797967405,
+			"modified": 1491919371577,
 			"created": 1490226615900,
 			"url": "{{base_url}}register",
 			"name": "Register",
@@ -560,7 +560,7 @@
 		{
 			"_id": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
 			"parentId": "fld_c15709bec3d8460aad574bef6e864a7a",
-			"modified": 1490797967403,
+			"modified": 1491919371572,
 			"created": 1490546500790,
 			"name": "Invitation",
 			"environment": {
@@ -572,7 +572,7 @@
 		{
 			"_id": "req_ee1dd72466a946f29dfe38baeeef890b",
 			"parentId": "fld_c05ee1bfdc64411ca2c83394a19f6aee",
-			"modified": 1490978068062,
+			"modified": 1491919371566,
 			"created": 1490543939860,
 			"url": "{{base_url}}search",
 			"name": "Search",
@@ -603,10 +603,10 @@
 		{
 			"_id": "req_3099d759b4ca4e88ba3beb7700ffb3a1",
 			"parentId": "fld_d41d40daa29c4512850c28c067c78a8c",
-			"modified": 1490797967400,
+			"modified": 1491928145323,
 			"created": 1490741368730,
 			"url": "{{base_url}}user",
-			"name": "user",
+			"name": "User",
 			"method": "DELETE",
 			"body": {
 				"text": ""
@@ -636,9 +636,44 @@
 			"_type": "request"
 		},
 		{
+			"_id": "req_6c399d76ef0545f69d8e71bfe9e8d635",
+			"parentId": "fld_d41d40daa29c4512850c28c067c78a8c",
+			"modified": 1491928386681,
+			"created": 1491928186115,
+			"url": "{{base_url}}group",
+			"name": "Group",
+			"method": "DELETE",
+			"body": {
+				"text": ""
+			},
+			"parameters": [
+				{
+					"name": "group_id",
+					"value": "0"
+				},
+				{
+					"name": "company_uuid",
+					"value": "82542ca3-42c6-4764-83ef-566f7c344bec"
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1491928186115,
+			"_type": "request"
+		},
+		{
 			"_id": "req_3555dfde7d9745a796a5cf41a4680ba8",
 			"parentId": "fld_5e2e8cb3ae4844debbfb2cbdc5593513",
-			"modified": 1491330191974,
+			"modified": 1491919371549,
 			"created": 1491329676518,
 			"url": "{{base_url}}group",
 			"name": "Group",
@@ -669,7 +704,7 @@
 		{
 			"_id": "req_acfcf11fa5dc44ed8a479fafeb861dcd",
 			"parentId": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
-			"modified": 1490797967399,
+			"modified": 1491919371542,
 			"created": 1490539727548,
 			"url": "{{base_url}}invite",
 			"name": "Invite",
@@ -700,7 +735,7 @@
 		{
 			"_id": "req_708bdff959304e20b4ef4954da70f3ac",
 			"parentId": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
-			"modified": 1490797967391,
+			"modified": 1491919371528,
 			"created": 1490548331654,
 			"url": "{{base_url}}response",
 			"name": "Response",

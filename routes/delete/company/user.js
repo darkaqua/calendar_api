@@ -60,7 +60,8 @@ module.exports = (app, express, request, response, next) => {
                         return;
                     }
 
-                    deleteUser(query.company_uuid, query.user_uuid, false).then((res) => response.json(res));
+                    deleteUser(query.company_uuid, query.user_uuid, false)
+                        .then((res) => response.json(res));
 
                 });
 
