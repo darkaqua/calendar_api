@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-04-11T16:33:26.857Z",
+	"__export_date": "2017-04-11T16:53:27.613Z",
 	"__export_source": "insomnia.desktop.app:v4.2.14",
 	"resources": [
 		{
@@ -117,10 +117,10 @@
 		{
 			"_id": "req_5b5c899e629b4f48904f17f7ee4e2286",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1491919371842,
+			"modified": 1491929201349,
 			"created": 1490282312855,
-			"url": "{{base_url}}Country-List",
-			"name": "Country-List",
+			"url": "{{base_url}}Countries",
+			"name": "Countries",
 			"method": "GET",
 			"body": {
 				"text": ""
