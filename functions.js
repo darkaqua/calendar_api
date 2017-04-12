@@ -86,6 +86,20 @@ const e = global.functions = {
             });
         });
     },
+    isUserFromCompanyGroup: (company_uuid, group_id, user_uuid) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT COUNT(*) AS count 
+                FROM UserLinkedCompanyGroup 
+                WHERE fk_company_uuid=${sql_conn.escape(company_uuid)}
+                AND fk_group_id=${sql_conn.escape(group_id)} 
+                AND fk_user_uuid=${sql_conn.escape(user_uuid)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].count === 1);
+            });
+        });
+    },
     isCompanyGroupRegistered: (company_uuid, group_id) => {
         return new Promise((promise_result, promise_error) => {
             const sql_conn = sql_source.connection();
@@ -106,6 +120,21 @@ const e = global.functions = {
                 `SELECT COUNT(*) AS count 
                 FROM UserLinkedCompany 
                 WHERE fk_company_uuid=${sql_conn.escape(company_uuid)}
+                AND fk_user_uuid=${sql_conn.escape(user_uuid)}
+                AND can_edit='1'`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].count === 1);
+            });
+        });
+    },
+    hasUserPermissionToEditCompanyGroup: (company_uuid, group_id, user_uuid) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT COUNT(*) AS count 
+                FROM UserLinkedCompanyGroup 
+                WHERE fk_company_uuid=${sql_conn.escape(company_uuid)}
+                AND fk_group_id=${sql_conn.escape(group_id)} 
                 AND fk_user_uuid=${sql_conn.escape(user_uuid)}
                 AND can_edit='1'`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
