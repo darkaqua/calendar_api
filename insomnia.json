@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-04-14T22:33:46.672Z",
+	"__export_date": "2017-04-14T23:17:32.756Z",
 	"__export_source": "insomnia.desktop.app:v5.0.4",
 	"resources": [
 		{
@@ -32,7 +32,7 @@
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1492209137651,
+			"modified": 1492211824619,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -452,6 +452,18 @@
 			"_type": "request"
 		},
 		{
+			"_id": "fld_df30165048564d40aa61da6dcb91db00",
+			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
+			"modified": 1492211635013,
+			"created": 1492211571345,
+			"name": "Company",
+			"environment": {
+				"base_url": "{{base_url}}company/"
+			},
+			"metaSortKey": -1492211571345,
+			"_type": "request_group"
+		},
+		{
 			"_id": "req_684d263a8d774a308bfe926894e4fbf8",
 			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
 			"modified": 1491919371598,
@@ -819,6 +831,42 @@
 			],
 			"authentication": {},
 			"metaSortKey": -1491329676518,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_34a7f5ef36834570817677b3d6218dc5",
+			"parentId": "fld_df30165048564d40aa61da6dcb91db00",
+			"modified": 1492211822926,
+			"created": 1492211616952,
+			"url": "{{base_url}}groups",
+			"name": "Groups",
+			"method": "GET",
+			"body": {},
+			"parameters": [
+				{
+					"name": "uuid",
+					"value": "82542ca3-42c6-4764-83ef-566f7c344bec",
+					"id": "pair_bebe04d528724298ae80092d0cfe35fd"
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{ client_id }}",
+					"id": "pair_7b3964131544465c92f620d398ab00d4"
+				},
+				{
+					"name": "client_token",
+					"value": "{{ client_token }}",
+					"id": "pair_c08a939138164d9eb1d902479b75e483"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1492211616952,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
 			"settingDisableRenderRequestBody": false,
