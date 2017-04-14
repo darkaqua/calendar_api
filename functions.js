@@ -175,6 +175,27 @@ const e = global.functions = {
             });
         });
     },
+    getCompanyGroupInfo: (company_uuid, group_id, user_uuid) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT id, fk_company_uuid AS company_uuid,
+                name, description, creation_timestamp AS creation
+                FROM CompanyGroup
+                WHERE id=${sql_conn.escape(group_id)} 
+                AND fk_company_uuid=${sql_conn.escape(company_uuid)};
+                SELECT can_edit
+                FROM UserLinkedCompanyGroup 
+                WHERE fk_group_id=${sql_conn.escape(group_id)} 
+                AND fk_company_uuid=${sql_conn.escape(company_uuid)} 
+                AND fk_user_uuid=${sql_conn.escape(user_uuid)};`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                let group = sql_results[0][0];
+                group.can_edit = sql_results[1][0].can_edit;
+                promise_result(group);
+            });
+        });
+    },
     getUserInfo: (user_uuid, pub = false) => {
         return new Promise((promise_result, promise_error) => {
             const sql_conn = sql_source.connection();
