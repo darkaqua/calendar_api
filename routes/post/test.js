@@ -10,7 +10,7 @@ module.exports = (app, express, request, response, next) => {
             response.json(auth);
             return;
         }
-        console.log(request.body)
+        console.log(request.body + "-1");
         response.json(auth);
     });
 };

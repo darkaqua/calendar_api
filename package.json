@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "test": "node main.js",
-    "start on changes": "nodemon main.js"
+    "start on changes": "nodemon main.js",
+    "pm2": "pm2 start processes.json"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
