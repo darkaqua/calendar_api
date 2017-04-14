@@ -4,7 +4,8 @@
   "scripts": {
     "test": "node main.js",
     "start on changes": "nodemon main.js",
-    "pm2": "pm2 start processes.json"
+    "start pm2": "pm2 start processes.json",
+    "stop pm2": "pm2 stop calendar_api"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

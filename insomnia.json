@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-04-14T17:05:10.039Z",
+	"__export_date": "2017-04-14T22:33:46.672Z",
 	"__export_source": "insomnia.desktop.app:v5.0.4",
 	"resources": [
 		{
@@ -32,7 +32,7 @@
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1492188059066,
+			"modified": 1492209137651,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -393,7 +393,7 @@
 		{
 			"_id": "req_058cbfdc00f74c46b9da9d00368b26c5",
 			"parentId": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
-			"modified": 1491919371607,
+			"modified": 1492204444093,
 			"created": 1490461582238,
 			"url": "{{base_url}}company",
 			"name": "Company",
@@ -402,26 +402,24 @@
 				"mimeType": "application/json",
 				"text": "{\n\t\"name\": \"Mario el fontanero2\",\n\t\"description\": \"El fonasdasdasdasd\",\n\t\"country\": \"ES\"\n}"
 			},
-			"parameters": [
-				{
-					"name": "",
-					"value": ""
-				}
-			],
+			"parameters": [],
 			"headers": [
 				{
 					"name": "Content-Type",
-					"value": "application/json"
+					"value": "application/json",
+					"id": "pair_f75d95e495024155b4848eaadc1fbdf7"
 				},
 				{
 					"name": "client_id",
 					"value": "{{client_id}}",
-					"disabled": false
+					"disabled": false,
+					"id": "pair_104a10e288534d22a4d352988aab63ab"
 				},
 				{
 					"name": "client_token",
 					"value": "{{client_token}}",
-					"disabled": false
+					"disabled": false,
+					"id": "pair_94de64e922674913beea9acda72cb932"
 				}
 			],
 			"authentication": {},
@@ -507,6 +505,36 @@
 			],
 			"authentication": {},
 			"metaSortKey": -1490543939909,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_fd626b0cc8884efa8a5d20e93e238319",
+			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
+			"modified": 1492209045582,
+			"created": 1492208839027,
+			"url": "{{base_url}}groups",
+			"name": "Groups",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{ client_id }}",
+					"id": "pair_72dbf442659f4c3a9fa2e385055c014b"
+				},
+				{
+					"name": "client_token",
+					"value": "{{ client_token }}",
+					"id": "pair_a516338ec96c43aa84330e2fabbf2966"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490543939960,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
 			"settingDisableRenderRequestBody": false,
@@ -870,7 +898,7 @@
 		{
 			"_id": "req_e48eafffaba44ad78400acd299f2ef57",
 			"parentId": "fld_708ed9946ffb4a65a5f699de45e86805",
-			"modified": 1492012536997,
+			"modified": 1492195455218,
 			"created": 1491932453345,
 			"url": "{{base_url}}user",
 			"name": "User",
@@ -893,7 +921,7 @@
 				},
 				{
 					"name": "user_uuid",
-					"value": "0c79ce19-a26d-48d3-bbf5-0ac860c1bac8",
+					"value": "290b6dc2-ce74-48e9-ace2-ac9fdbd5b5a8",
 					"id": "pair_560bb6665b86470ead53b5571d1930a3",
 					"disabled": false
 				}
@@ -921,7 +949,7 @@
 		{
 			"_id": "req_5a10a6b22426465caf5b807d4f6ca98d",
 			"parentId": "fld_ce811b2b5a5b45dfab27f20d220094fa",
-			"modified": 1492188053133,
+			"modified": 1492209127512,
 			"created": 1492187865645,
 			"url": "{{base_url}}user",
 			"name": "User",
