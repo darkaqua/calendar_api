@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/darkaqua/calendar_api.svg?branch=develop)](https://travis-ci.org/darkaqua/calendar_api)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # calendar project API (not secured at all)
 
