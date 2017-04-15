@@ -1,0 +1,19 @@
+{
+  "name": "calendar_api",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "node main.js",
+    "start on changes": "nodemon main.js",
+    "start pm2": "pm2 start processes.json",
+    "stop pm2": "pm2 stop calendar_api"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.15.2",
+    "mysql": "^2.13.0",
+    "uuid": "^3.0.1",
+    "uuid-validate": "0.0.2"
+  }
+}

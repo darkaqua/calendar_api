@@ -1,0 +1,9 @@
+{
+  "name": "calendar_api",
+  "script": "main.js",
+  "watch": true,
+  "ignore_watch": [".git", ".idea", "node_modules"],
+  "watch_options": {
+    "followSymlinks": false
+  }
+}
