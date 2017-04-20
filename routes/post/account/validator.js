@@ -21,6 +21,6 @@ module.exports = (app, express, request, response, next) => {
     };
 
     global.functions.authRequest(auth).then(res => {
-        response.json(res)
+        response.json({ valid:res.valid });
     });
 };
