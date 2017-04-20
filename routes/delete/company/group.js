@@ -11,46 +11,46 @@ module.exports = (app, express, request, response, next) => {
             response.json(auth);
             return;
         }
-        const query = request.query;
+        const body = request.body;
 
-        if(query.company_uuid === undefined){
+        if(body.company_uuid === undefined){
             response.json({ valid: false, message: `La uuid de la compañia no puede estar vacia` });
             return;
         }
-        if(!validators.verifyUUID(query.company_uuid)){
+        if(!validators.verifyUUID(body.company_uuid)){
             response.json({ valid: false, message: `La uuid de la compañia debe ser una uuid valida` });
             return;
         }
-        if(query.group_id === undefined){
+        if(body.group_id === undefined){
             response.json({ valid: false, message: `La id del grupo no puede estar vacia` });
             return;
         }
-        if(isNaN(query.group_id)){
+        if(isNaN(body.group_id)){
             response.json({ valid: false, message: `La id del grupo debe ser un número valido` });
             return;
         }
 
-        global.functions.isCompanyRegistered(query.company_uuid).then((isCompanyRegistered) => {
+        global.functions.isCompanyRegistered(body.company_uuid).then((isCompanyRegistered) => {
             if(!isCompanyRegistered){
                 response.json({ valid: false, message: `La compañia no existe` });
                 return;
             }
 
-            global.functions.hasUserPermissionToEditCompany(query.company_uuid, auth.user_uuid)
+            global.functions.hasUserPermissionToEditCompany(body.company_uuid, auth.user_uuid)
                 .then((hasUserPermissionToEditCompany) => {
                 if(!hasUserPermissionToEditCompany){
                     response.json({valid: false, message: `No tienes permisos suficientes sobre esta compañia`});
                     return;
                 }
 
-                global.functions.isCompanyGroupRegistered(query.company_uuid, query.group_id)
+                global.functions.isCompanyGroupRegistered(body.company_uuid, body.group_id)
                     .then((isCompanyGroupRegistered) => {
                     if(!isCompanyGroupRegistered){
                         response.json({valid: false, message: `No existe este grupo dentro de la compañia`});
                         return;
                     }
 
-                    deleteCompanyGroup(query.company_uuid, query.group_id)
+                    deleteCompanyGroup(body.company_uuid, body.group_id)
                         .then((res) => response.json(res));
                 });
             });
