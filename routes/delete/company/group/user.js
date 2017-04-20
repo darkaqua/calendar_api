@@ -11,64 +11,64 @@ module.exports = (app, express, request, response, next) => {
             response.json(auth);
             return;
         }
-        const query = request.query;
+        const body = request.body;
 
         //Validación de user_uuid
-        if(query.user_uuid === undefined){
+        if(body.user_uuid === undefined){
             response.json({ valid: false, message: `La uuid del usuario no puede estar vacia` });
             return;
         }
-        if(!validators.verifyUUID(query.user_uuid)){
+        if(!validators.verifyUUID(body.user_uuid)){
             response.json({ valid: false, message: `La uuid del usuario no es valida` });
             return;
         }
         //Validación de company_uuid
-        if(query.company_uuid === undefined){
+        if(body.company_uuid === undefined){
             response.json({ valid: false, message: `La uuid de la compañia no puede estar vacia` });
             return;
         }
-        if(!validators.verifyUUID(query.company_uuid)){
+        if(!validators.verifyUUID(body.company_uuid)){
             response.json({ valid: false, message: `La uuid de la compañia debe ser una uuid valida` });
             return;
         }
         //Validación de group_id
-        if(query.group_id === undefined){
+        if(body.group_id === undefined){
             response.json({ valid: false, message: `La id del grupo no puede estar vacia` });
             return;
         }
-        if(isNaN(query.group_id)){
+        if(isNaN(body.group_id)){
             response.json({ valid: false, message: `La id del grupo debe ser un número valido` });
             return;
         }
         //Comprobar que la uuid del usuario no sea la misma que la de el mismo
-        if(query.user_uuid === auth.user_uuid){
+        if(body.user_uuid === auth.user_uuid){
             response.json({ valid: false, message: `No puedes eliminarte a ti mismo de un grupo` });
             return;
         }
         //Comprobar que el usuario esta registrado
-        global.functions.isUserUUIDRegistered(query.user_uuid).then((isUserUUIDRegistered) => {
+        global.functions.isUserUUIDRegistered(body.user_uuid).then((isUserUUIDRegistered) => {
             if(!isUserUUIDRegistered){
                 response.json({valid: false, message: `El usuario no esta registrado`});
                 return;
             }
             //Comprobar si la compañia esta registrada
-            global.functions.isCompanyRegistered(query.company_uuid).then((isCompanyRegistered) => {
+            global.functions.isCompanyRegistered(body.company_uuid).then((isCompanyRegistered) => {
                 if (!isCompanyRegistered) {
                     response.json({valid: false, message: `La compañia no existe`});
                     return;
                 }
                 //Comprobar si el grupo existe
-                global.functions.isCompanyGroupRegistered(query.company_uuid, query.group_id)
+                global.functions.isCompanyGroupRegistered(body.company_uuid, body.group_id)
                     .then((isCompanyGroupRegistered) => {
                     if (!isCompanyGroupRegistered) {
                         response.json({valid: false, message: `No existe este grupo dentro de la compañia`});
                         return;
                     }
                     //Comprobar si el usuario tiene permiso para editar el grupo
-                    global.functions.hasUserPermissionToEditCompanyGroup(query.company_uuid, query.group_id, auth.user_uuid)
+                    global.functions.hasUserPermissionToEditCompanyGroup(body.company_uuid, body.group_id, auth.user_uuid)
                         .then((hasUserPermissionToEditCompanyGroup) => {
 
-                        global.functions.hasUserPermissionToEditCompany(query.company_uuid, auth.user_uuid)
+                        global.functions.hasUserPermissionToEditCompany(body.company_uuid, auth.user_uuid)
                             .then(hasUserPermissionToEditCompany => {
 
                             if(!hasUserPermissionToEditCompanyGroup && !hasUserPermissionToEditCompany){
@@ -77,14 +77,14 @@ module.exports = (app, express, request, response, next) => {
                             }
 
                             //Comprobar si el usuario pertenece al grupo
-                            global.functions.isUserFromCompanyGroup(query.company_uuid, query.group_id, query.user_uuid)
+                            global.functions.isUserFromCompanyGroup(body.company_uuid, body.group_id, body.user_uuid)
                                 .then(isUserFromCompanyGroup => {
                                 if(!isUserFromCompanyGroup){
                                     response.json({valid: false, message: `El usuario no pertenece a este grupo`});
                                     return;
                                 }
 
-                                deleteUser(query.company_uuid, query.group_id, query.user_uuid)
+                                deleteUser(body.company_uuid, body.group_id, body.user_uuid)
                                     .then((res) => response.json(res));
                             });
                         });

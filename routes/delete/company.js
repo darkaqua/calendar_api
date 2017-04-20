@@ -10,34 +10,34 @@ module.exports = (app, express, request, response, next) => {
             response.json(auth);
             return;
         }
-        const query = request.query;
+        const body = request.body;
 
-        if(query.uuid === undefined){
+        if(body.uuid === undefined){
             response.json({ valid: false, message: `La uuid de la compañia no puede estar vacia` });
             return;
         }
-        if(!validators.verifyUUID(query.uuid)){
+        if(!validators.verifyUUID(body.uuid)){
             response.json({ valid: false, message: `La uuid de la compañia no es valida` });
             return;
         }
 
         //Verificar que la compañia existe
-        global.functions.isCompanyRegistered(query.uuid).then((isCompanyRegistered) => {
+        global.functions.isCompanyRegistered(body.uuid).then((isCompanyRegistered) => {
             if(!isCompanyRegistered){
                 response.json({ valid: false, message: `La compañia no existe` });
                 return;
             }
 
             //Verificar que el usuario tiene permisos para editar la compañia
-            global.functions.hasUserPermissionToEditCompany(query.company_uuid, auth.user_uuid)
+            global.functions.hasUserPermissionToEditCompany(body.company_uuid, auth.user_uuid)
                 .then((hasUserPermissionToEditCompany) => {
 
                 if(!hasUserPermissionToEditCompany){
                     response.json({ valid: false, message: `No tienes permisos suficientes sobre esta compañia` });
                     return;
                 }
-
-                sql_query = `DELETE FROM Company WHERE uuid=${sql_conn.escape(query.uuid)}`;
+                const sql_conn = sql_source.connection();
+                const sql_query = `DELETE FROM Company WHERE uuid=${sql_conn.escape(body.uuid)}`;
                 sql_conn.query(sql_query, () => {
                     response.json({ valid: true, message: `Se ha eliminado con éxito la compañia` });
                 });

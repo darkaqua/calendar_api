@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-04-15T16:02:07.365Z",
-	"__export_source": "insomnia.desktop.app:v5.0.5",
+	"__export_date": "2017-04-20T14:59:12.291Z",
+	"__export_source": "insomnia.desktop.app:v5.0.1",
 	"resources": [
 		{
 			"_id": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
 			"parentId": null,
-			"modified": 1491919372215,
+			"modified": 1492696663023,
 			"created": 1490224614027,
 			"name": "calendar_api",
 			"description": "",
@@ -17,7 +17,7 @@
 		{
 			"_id": "env_4c52ac561de74d9f8099efb9d94d5999",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1491919372211,
+			"modified": 1492696663021,
 			"created": 1490224620484,
 			"name": "Base Environment",
 			"data": {
@@ -32,7 +32,7 @@
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1492271726677,
+			"modified": 1492698834136,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -41,7 +41,7 @@
 		{
 			"_id": "fld_8faeda91e6b94521807ca01285f26010",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1491919372194,
+			"modified": 1492696663018,
 			"created": 1490282210402,
 			"name": "GET",
 			"environment": {},
@@ -51,7 +51,7 @@
 		{
 			"_id": "fld_dd2362a3e95045c189871ca74af7ee28",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1491919372138,
+			"modified": 1492696663016,
 			"created": 1490282263332,
 			"name": "POST",
 			"environment": {},
@@ -61,7 +61,7 @@
 		{
 			"_id": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1491919372032,
+			"modified": 1492696663004,
 			"created": 1490738229698,
 			"name": "DELETE",
 			"environment": {},
@@ -71,7 +71,7 @@
 		{
 			"_id": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1491919372027,
+			"modified": 1492696663000,
 			"created": 1490738831274,
 			"name": "PUT",
 			"environment": {},
@@ -81,7 +81,7 @@
 		{
 			"_id": "fld_d0bda85404464c9ebf707e095b259510",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1491919372021,
+			"modified": 1492696662999,
 			"created": 1490282221577,
 			"name": "Info",
 			"environment": {
@@ -93,7 +93,7 @@
 		{
 			"_id": "fld_2002fa0e78a840f79562943d384b4a78",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1491919372000,
+			"modified": 1492696662998,
 			"created": 1490458858107,
 			"name": "User",
 			"environment": {
@@ -105,7 +105,7 @@
 		{
 			"_id": "fld_c2d196499cde425ba458c0135aeefeeb",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1491919371937,
+			"modified": 1492696662997,
 			"created": 1490541989204,
 			"name": "Company",
 			"environment": {
@@ -117,7 +117,7 @@
 		{
 			"_id": "req_5b5c899e629b4f48904f17f7ee4e2286",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1491929201349,
+			"modified": 1492696662995,
 			"created": 1490282312855,
 			"url": "{{base_url}}Countries",
 			"name": "Countries",
@@ -148,7 +148,7 @@
 		{
 			"_id": "req_a481f3736dd24639aaf82ec9022c52a5",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1491919371837,
+			"modified": 1492696662993,
 			"created": 1490367415464,
 			"url": "{{base_url}}test",
 			"name": "Test",
@@ -188,7 +188,7 @@
 		{
 			"_id": "req_fb010ff933ea4457a0c19b59a530ce4a",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1491919371832,
+			"modified": 1492696662992,
 			"created": 1490457364405,
 			"url": "{{base_url}}user",
 			"name": "User",
@@ -223,7 +223,7 @@
 		{
 			"_id": "req_9383a520317a42a1abe38eb7ed24cdd1",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1491919371826,
+			"modified": 1492696662991,
 			"created": 1490888149190,
 			"url": "{{base_url}}company",
 			"name": "Company",
@@ -258,7 +258,7 @@
 		{
 			"_id": "fld_dd30c4853d1045a2b5f93d7614c8d778",
 			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
-			"modified": 1491919371821,
+			"modified": 1492696662989,
 			"created": 1490282271677,
 			"name": "Account",
 			"environment": {
@@ -270,7 +270,7 @@
 		{
 			"_id": "fld_c15709bec3d8460aad574bef6e864a7a",
 			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
-			"modified": 1491919371815,
+			"modified": 1492696662987,
 			"created": 1490461467158,
 			"name": "Company",
 			"environment": {
@@ -282,7 +282,7 @@
 		{
 			"_id": "fld_c05ee1bfdc64411ca2c83394a19f6aee",
 			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
-			"modified": 1491919371803,
+			"modified": 1492696662986,
 			"created": 1490893783033,
 			"name": "User",
 			"environment": {
@@ -294,7 +294,7 @@
 		{
 			"_id": "req_b12b3273476a4b96bb831f2e55b8e6ff",
 			"parentId": "fld_dd2362a3e95045c189871ca74af7ee28",
-			"modified": 1491919371749,
+			"modified": 1492696662984,
 			"created": 1490461634376,
 			"url": "{{base_url}}test",
 			"name": "Test",
@@ -334,7 +334,7 @@
 		{
 			"_id": "fld_d41d40daa29c4512850c28c067c78a8c",
 			"parentId": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
-			"modified": 1491928161268,
+			"modified": 1492696662983,
 			"created": 1490741321355,
 			"name": "Company",
 			"environment": {
@@ -346,28 +346,31 @@
 		{
 			"_id": "req_4e3aff557cea461398771b6870989b7e",
 			"parentId": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
-			"modified": 1491919371616,
+			"modified": 1492700337088,
 			"created": 1490738251098,
 			"url": "{{base_url}}company",
 			"name": "Company",
 			"method": "DELETE",
 			"body": {
-				"text": ""
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"4c06fdfc-fcdd-4ace-acc0-dd8774d5f273\"\n}"
 			},
-			"parameters": [
-				{
-					"name": "uuid",
-					"value": "4c06fdfc-fcdd-4ace-acc0-dd8774d5f273"
-				}
-			],
+			"parameters": [],
 			"headers": [
 				{
 					"name": "client_id",
-					"value": "{{client_id}}"
+					"value": "{{client_id}}",
+					"id": "pair_b0ac9b5e0c73436b8e1ffbd30cf083ee"
 				},
 				{
 					"name": "client_token",
-					"value": "{{client_token}}"
+					"value": "{{client_token}}",
+					"id": "pair_a093230765d448b1b1bc353e2f404997"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_5e0a7af5d90c4414890d0bc813a36f44"
 				}
 			],
 			"authentication": {},
@@ -381,7 +384,7 @@
 		{
 			"_id": "fld_5e2e8cb3ae4844debbfb2cbdc5593513",
 			"parentId": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
-			"modified": 1491928169132,
+			"modified": 1492696662981,
 			"created": 1491329618555,
 			"name": "Company",
 			"environment": {
@@ -393,7 +396,7 @@
 		{
 			"_id": "req_058cbfdc00f74c46b9da9d00368b26c5",
 			"parentId": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
-			"modified": 1492204444093,
+			"modified": 1492696662979,
 			"created": 1490461582238,
 			"url": "{{base_url}}company",
 			"name": "Company",
@@ -433,7 +436,7 @@
 		{
 			"_id": "req_193ceb79e20c4e98988cf96a701b282f",
 			"parentId": "fld_d0bda85404464c9ebf707e095b259510",
-			"modified": 1491919371602,
+			"modified": 1492696662978,
 			"created": 1490231280018,
 			"url": "{{base_url}}version",
 			"name": "Version",
@@ -454,7 +457,7 @@
 		{
 			"_id": "fld_df30165048564d40aa61da6dcb91db00",
 			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
-			"modified": 1492211635013,
+			"modified": 1492696662977,
 			"created": 1492211571345,
 			"name": "Company",
 			"environment": {
@@ -466,7 +469,7 @@
 		{
 			"_id": "req_684d263a8d774a308bfe926894e4fbf8",
 			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
-			"modified": 1491919371598,
+			"modified": 1492696662975,
 			"created": 1490547217466,
 			"url": "{{base_url}}invitations",
 			"name": "Invitations",
@@ -496,7 +499,7 @@
 		{
 			"_id": "req_83f66f4669114c74ad747c113b295bb8",
 			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
-			"modified": 1491919371593,
+			"modified": 1492698085950,
 			"created": 1490883051933,
 			"url": "{{base_url}}companies",
 			"name": "Companies",
@@ -508,11 +511,13 @@
 			"headers": [
 				{
 					"name": "client_id",
-					"value": "{{client_id}}"
+					"value": "{{client_id}}",
+					"id": "pair_01a379c7be66455d88fd49f63ea33845"
 				},
 				{
 					"name": "client_token",
-					"value": "{{client_token}}"
+					"value": "{{client_token}}",
+					"id": "pair_5c29bd599e3c4d4c81ef40b0e3b312bd"
 				}
 			],
 			"authentication": {},
@@ -526,7 +531,7 @@
 		{
 			"_id": "req_fd626b0cc8884efa8a5d20e93e238319",
 			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
-			"modified": 1492209045582,
+			"modified": 1492696662973,
 			"created": 1492208839027,
 			"url": "{{base_url}}groups",
 			"name": "Groups",
@@ -556,7 +561,7 @@
 		{
 			"_id": "req_98a170488e884fa9b19f032fd78a3a2a",
 			"parentId": "fld_c2d196499cde425ba458c0135aeefeeb",
-			"modified": 1491919371587,
+			"modified": 1492696662972,
 			"created": 1490971144524,
 			"url": "{{base_url}}users",
 			"name": "Users",
@@ -591,7 +596,7 @@
 		{
 			"_id": "req_a66410901ec4411caf1048d6cdd46b0f",
 			"parentId": "fld_c2d196499cde425ba458c0135aeefeeb",
-			"modified": 1492271521814,
+			"modified": 1492696662970,
 			"created": 1492271446961,
 			"url": "{{base_url}}groups",
 			"name": "Groups",
@@ -629,7 +634,7 @@
 		{
 			"_id": "req_48ef443fc5774c98bb686849d482e230",
 			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
-			"modified": 1491919371582,
+			"modified": 1492696662969,
 			"created": 1490224838667,
 			"url": "{{base_url}}login",
 			"name": "Login",
@@ -660,7 +665,7 @@
 		{
 			"_id": "req_53ba3c40bcd64f699dcb6ef526090aae",
 			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
-			"modified": 1491919371577,
+			"modified": 1492696662968,
 			"created": 1490226615900,
 			"url": "{{base_url}}register",
 			"name": "Register",
@@ -689,9 +694,37 @@
 			"_type": "request"
 		},
 		{
+			"_id": "req_f1ae4337e58d46fc8d68511d3b482cbd",
+			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
+			"modified": 1492698832489,
+			"created": 1492697270118,
+			"url": "{{ base_url }}validator",
+			"name": "Validator",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"client_id\": \"{{ client_id }}\",\n\t\"client_token\": \"{{ client_token }}\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_f95465c97cfc45dfac14f0d0e9aff1e9"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1492697270118,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
 			"_id": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
 			"parentId": "fld_c15709bec3d8460aad574bef6e864a7a",
-			"modified": 1491919371572,
+			"modified": 1492696662963,
 			"created": 1490546500790,
 			"name": "Invitation",
 			"environment": {
@@ -703,7 +736,7 @@
 		{
 			"_id": "req_ee1dd72466a946f29dfe38baeeef890b",
 			"parentId": "fld_c05ee1bfdc64411ca2c83394a19f6aee",
-			"modified": 1491919371566,
+			"modified": 1492696662959,
 			"created": 1490543939860,
 			"url": "{{base_url}}search",
 			"name": "Search",
@@ -738,7 +771,7 @@
 		{
 			"_id": "fld_708ed9946ffb4a65a5f699de45e86805",
 			"parentId": "fld_d41d40daa29c4512850c28c067c78a8c",
-			"modified": 1491932426693,
+			"modified": 1492696662958,
 			"created": 1491932401704,
 			"name": "Group",
 			"environment": {
@@ -750,32 +783,31 @@
 		{
 			"_id": "req_3099d759b4ca4e88ba3beb7700ffb3a1",
 			"parentId": "fld_d41d40daa29c4512850c28c067c78a8c",
-			"modified": 1491928145323,
+			"modified": 1492700317059,
 			"created": 1490741368730,
 			"url": "{{base_url}}user",
 			"name": "User",
 			"method": "DELETE",
 			"body": {
-				"text": ""
+				"mimeType": "application/json",
+				"text": "{\n\t\"user_uuid\": \"0c79ce19-a26d-48d3-bbf5-0ac860c1bac8\",\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\"\n}"
 			},
-			"parameters": [
-				{
-					"name": "user_uuid",
-					"value": "0c79ce19-a26d-48d3-bbf5-0ac860c1bac8"
-				},
-				{
-					"name": "company_uuid",
-					"value": "0aa7b5a2-2d91-4636-82f2-adbd27ec9a73"
-				}
-			],
+			"parameters": [],
 			"headers": [
 				{
 					"name": "client_id",
-					"value": "{{client_id}}"
+					"value": "{{client_id}}",
+					"id": "pair_30941be5c9d94f268ce5ffbf1a62f7c6"
 				},
 				{
 					"name": "client_token",
-					"value": "{{client_token}}"
+					"value": "{{client_token}}",
+					"id": "pair_ad0d8dfbda99472eba0d47b4ee93a590"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_4f14bbd60cf047fcacc5a2162067802f"
 				}
 			],
 			"authentication": {},
@@ -789,32 +821,31 @@
 		{
 			"_id": "req_6c399d76ef0545f69d8e71bfe9e8d635",
 			"parentId": "fld_d41d40daa29c4512850c28c067c78a8c",
-			"modified": 1491928386681,
+			"modified": 1492700283695,
 			"created": 1491928186115,
 			"url": "{{base_url}}group",
 			"name": "Group",
 			"method": "DELETE",
 			"body": {
-				"text": ""
+				"mimeType": "application/json",
+				"text": "{\n\t\"group_id\": 0,\n\t\"company_uuid\": \"82542ca3-42c6-4764-83ef-566f7c344bec\"\n}"
 			},
-			"parameters": [
-				{
-					"name": "group_id",
-					"value": "0"
-				},
-				{
-					"name": "company_uuid",
-					"value": "82542ca3-42c6-4764-83ef-566f7c344bec"
-				}
-			],
+			"parameters": [],
 			"headers": [
 				{
 					"name": "client_id",
-					"value": "{{client_id}}"
+					"value": "{{client_id}}",
+					"id": "pair_04351ecdc4e44ecaa3a8e5540da34099"
 				},
 				{
 					"name": "client_token",
-					"value": "{{client_token}}"
+					"value": "{{client_token}}",
+					"id": "pair_327e585ffc6c4db5a44879246ea58dde"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_9f5ffdc274f745e6907078af3bfebfd0"
 				}
 			],
 			"authentication": {},
@@ -828,7 +859,7 @@
 		{
 			"_id": "fld_ce811b2b5a5b45dfab27f20d220094fa",
 			"parentId": "fld_5e2e8cb3ae4844debbfb2cbdc5593513",
-			"modified": 1491932363622,
+			"modified": 1492696662954,
 			"created": 1491932351937,
 			"name": "Group",
 			"environment": {
@@ -840,7 +871,7 @@
 		{
 			"_id": "req_3555dfde7d9745a796a5cf41a4680ba8",
 			"parentId": "fld_5e2e8cb3ae4844debbfb2cbdc5593513",
-			"modified": 1492187965550,
+			"modified": 1492696662952,
 			"created": 1491329676518,
 			"url": "{{base_url}}group",
 			"name": "Group",
@@ -878,7 +909,7 @@
 		{
 			"_id": "req_34a7f5ef36834570817677b3d6218dc5",
 			"parentId": "fld_df30165048564d40aa61da6dcb91db00",
-			"modified": 1492211822926,
+			"modified": 1492696662951,
 			"created": 1492211616952,
 			"url": "{{base_url}}groups",
 			"name": "Groups",
@@ -914,7 +945,7 @@
 		{
 			"_id": "req_acfcf11fa5dc44ed8a479fafeb861dcd",
 			"parentId": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
-			"modified": 1491919371542,
+			"modified": 1492696662950,
 			"created": 1490539727548,
 			"url": "{{base_url}}invite",
 			"name": "Invite",
@@ -949,7 +980,7 @@
 		{
 			"_id": "req_708bdff959304e20b4ef4954da70f3ac",
 			"parentId": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
-			"modified": 1491919371528,
+			"modified": 1492696662948,
 			"created": 1490548331654,
 			"url": "{{base_url}}response",
 			"name": "Response",
@@ -984,34 +1015,16 @@
 		{
 			"_id": "req_e48eafffaba44ad78400acd299f2ef57",
 			"parentId": "fld_708ed9946ffb4a65a5f699de45e86805",
-			"modified": 1492195455218,
+			"modified": 1492700234656,
 			"created": 1491932453345,
 			"url": "{{base_url}}user",
 			"name": "User",
 			"method": "DELETE",
 			"body": {
-				"text": ""
+				"mimeType": "application/json",
+				"text": "{\n\t\"group_id\": 0,\n\t\"company_uuid\": \"82542ca3-42c6-4764-83ef-566f7c344bec\",\n\t\"user_uuid\": \"290b6dc2-ce74-48e9-ace2-ac9fdbd5b5a8\"\n}"
 			},
-			"parameters": [
-				{
-					"name": "group_id",
-					"value": "0",
-					"id": "pair_706dc9a87e074f47b106cc826da16bec",
-					"disabled": false
-				},
-				{
-					"name": "company_uuid",
-					"value": "82542ca3-42c6-4764-83ef-566f7c344bec",
-					"id": "pair_825a4b6479db4a708661c8c2cfad60c9",
-					"disabled": false
-				},
-				{
-					"name": "user_uuid",
-					"value": "290b6dc2-ce74-48e9-ace2-ac9fdbd5b5a8",
-					"id": "pair_560bb6665b86470ead53b5571d1930a3",
-					"disabled": false
-				}
-			],
+			"parameters": [],
 			"headers": [
 				{
 					"name": "client_id",
@@ -1022,6 +1035,11 @@
 					"name": "client_token",
 					"value": "{{client_token}}",
 					"id": "pair_fea0711d394443eb8688cb90ba4f7748"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_3e25958272e643aca766116695dee350"
 				}
 			],
 			"authentication": {},
@@ -1035,7 +1053,7 @@
 		{
 			"_id": "req_5a10a6b22426465caf5b807d4f6ca98d",
 			"parentId": "fld_ce811b2b5a5b45dfab27f20d220094fa",
-			"modified": 1492209127512,
+			"modified": 1492696662939,
 			"created": 1492187865645,
 			"url": "{{base_url}}user",
 			"name": "User",

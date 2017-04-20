@@ -11,34 +11,34 @@ module.exports = (app, express, request, response, next) => {
             response.json(auth);
             return;
         }
-        const query = request.query;
+        const body = request.body;
 
-        if(query.user_uuid === undefined){
+        if(body.user_uuid === undefined){
             response.json({ valid: false, message: `La uuid del usuario no puede estar vacia` });
             return;
         }
-        if(!validators.verifyUUID(query.user_uuid)){
+        if(!validators.verifyUUID(body.user_uuid)){
             response.json({ valid: false, message: `La uuid del usuario no es valida` });
             return;
         }
 
-        if(query.company_uuid === undefined){
+        if(body.company_uuid === undefined){
             response.json({ valid: false, message: `La uuid de la compañia no puede estar vacia` });
             return;
         }
-        if(!validators.verifyUUID(query.company_uuid)){
+        if(!validators.verifyUUID(body.company_uuid)){
             response.json({ valid: false, message: `La uuid de la compañia no es valida` });
             return;
         }
 
         //Verificar si la compañia existe
-        global.functions.isCompanyRegistered(query.company_uuid).then((isCompanyRegistered) => {
+        global.functions.isCompanyRegistered(body.company_uuid).then((isCompanyRegistered) => {
             if(!isCompanyRegistered){
                 response.json({ valid: false, message: `La compañia no existe` });
                 return;
             }
             //Verificar si el usuario pertenence a la compañia
-            global.functions.isUserFromCompany(query.company_uuid, query.user_uuid)
+            global.functions.isUserFromCompany(body.company_uuid, body.user_uuid)
                 .then((isUserFromCompany) => {
 
                 if(!isUserFromCompany){
@@ -46,13 +46,13 @@ module.exports = (app, express, request, response, next) => {
                     return;
                 }
                 //Si el usuario es el mismo se puede eliminar
-                if(auth.user_uuid === query.user_uuid){
-                    deleteUser(query.company_uuid, query.user_uuid, true).then((res) => response.json(res));
+                if(auth.user_uuid === body.user_uuid){
+                    deleteUser(body.company_uuid, body.user_uuid, true).then((res) => response.json(res));
                     return;
                 }
 
                 //Verificar si el usuario tiene permiso para echar al usuario
-                global.functions.hasUserPermissionToEditCompany(query.company_uuid, auth.user_uuid)
+                global.functions.hasUserPermissionToEditCompany(body.company_uuid, auth.user_uuid)
                     .then((hasUserPermissionToEditCompany) => {
 
                     if (!hasUserPermissionToEditCompany) {
@@ -60,7 +60,7 @@ module.exports = (app, express, request, response, next) => {
                         return;
                     }
 
-                    deleteUser(query.company_uuid, query.user_uuid, false)
+                    deleteUser(body.company_uuid, body.user_uuid, false)
                         .then((res) => response.json(res));
 
                 });
