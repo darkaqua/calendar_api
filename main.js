@@ -16,12 +16,15 @@ try{
     global.config = require('./private/config.json');
 
     const port = global.config.api.port;
+    require(`./metrics/load`)();
 
     app.listen(port, () => {
+
         console.log(`REST API server started at http://localhost:${port}`)
     });
 
     require('./routes')(app, express);
 } catch(e){
-    console.log(`No se encuentra el archivo de configuración... :(`);
+    console.error(e);
+    //console.log(`No se encuentra el archivo de configuración... :(`);
 }
