@@ -113,6 +113,20 @@ const e = global.functions = {
             });
         });
     },
+    isCompanyGroupDateRegistered: (company_uuid, group_id, date_id) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT COUNT(*) AS count 
+                FROM CompanyGroupDate 
+                WHERE fk_company_uuid=${sql_conn.escape(company_uuid)}
+                AND fk_group_id=${sql_conn.escape(group_id)} 
+                AND id=${sql_conn.escape(date_id)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].count === 1);
+            });
+        });
+    },
     hasUserPermissionToEditCompany: (company_uuid, user_uuid) => {
         return new Promise((promise_result, promise_error) => {
             const sql_conn = sql_source.connection();
@@ -134,6 +148,22 @@ const e = global.functions = {
                 `SELECT COUNT(*) AS count 
                 FROM UserLinkedCompanyGroup 
                 WHERE fk_company_uuid=${sql_conn.escape(company_uuid)}
+                AND fk_group_id=${sql_conn.escape(group_id)} 
+                AND fk_user_uuid=${sql_conn.escape(user_uuid)}
+                AND can_edit='1'`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].count === 1);
+            });
+        });
+    },
+    hasUserPermissionToEditCompanyGroupDate: (company_uuid, group_id, date_id, user_uuid) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT COUNT(*) AS count 
+                FROM UserLinkedCompanyGroupDate 
+                WHERE fk_company_uuid=${sql_conn.escape(company_uuid)} 
+                AMD fk_date_id=${sql_conn.escape(date_id)} 
                 AND fk_group_id=${sql_conn.escape(group_id)} 
                 AND fk_user_uuid=${sql_conn.escape(user_uuid)}
                 AND can_edit='1'`;
