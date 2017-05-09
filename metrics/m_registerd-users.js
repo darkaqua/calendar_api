@@ -12,6 +12,9 @@ setInterval(() => {
     const sql_conn = sql_source.connection();
     const query = `SELECT COUNT(*) AS count FROM User`;
     sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+        if(sql_error) return;
+        if(!sql_results.length) return;
+
         metric.set(sql_results[0].count);
     });
 }, 1000);
