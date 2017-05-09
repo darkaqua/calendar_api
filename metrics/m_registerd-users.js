@@ -14,7 +14,7 @@ setInterval(() => {
     sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
         if(sql_error) return;
         if(!sql_results.length) return;
-        
+
         metric.set(sql_results[0].count);
     });
 }, 1000);
