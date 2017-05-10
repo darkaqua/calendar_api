@@ -12,7 +12,7 @@ module.exports = (app, express, request, response, next) => {
         }
         const body = request.body;
 
-        if(body.uuid === undefined){
+        if(body.company_uuid === undefined){
             response.json({ valid: false, message: `La uuid de la compañia no puede estar vacia` });
             return;
         }
