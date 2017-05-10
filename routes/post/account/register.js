@@ -5,6 +5,7 @@ const validators = require('../../../utils/validators');
 const crypt_utils = require('../../../utils/crypt-utils');
 const sql_source = require('../../../utils/sql-source');
 const uuid = require('uuid');
+const metrics_registerd_users = require('../../../metrics/m_registerd-users');
 
 module.exports = (app, express, request, response, next) => {
     const body = request.body;
@@ -150,6 +151,7 @@ const getRegisterResponse = (
                         sql_conn.query(
                             query,
                             (sql_error_3, sql_results_3, sql_fields_3) => {
+                                metrics_registerd_users.metric.inc();
                                 promise_result({ valid: true }); //Volver al login
                             }
                         );
