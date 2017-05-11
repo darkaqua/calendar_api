@@ -15,7 +15,7 @@ module.exports.init = () => {
         if(sql_error) return;
         if(!sql_results.length) return;
 
-        module.exports.counter.set(sql_results[0].count);
+        module.exports.counter.inc(sql_results[0].count);
 
         sql_conn.end();
     });

@@ -3,5 +3,6 @@
  */
 module.exports = () => {
     require('./m_registerd-users').init();
+    require('./m_send-requests').init();
     console.log("Metrics loaded!")
 };
