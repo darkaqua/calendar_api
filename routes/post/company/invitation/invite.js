@@ -42,6 +42,7 @@ module.exports = (app, express, request, response, next) => {
 
             if(count === 0){
                 response.json({ valid: false, message: `No tienes permisos para enviar peticiones de esta compañia` });
+                sql_conn.end();
                 return;
             }
 
@@ -87,6 +88,7 @@ module.exports = (app, express, request, response, next) => {
                                 ? `Se han cambios los permisos de ${body.username}!`
                                 : `Se ha enviado la solicitud a ${body.username}!`
                         });
+                        sql_conn.end();
                     });
 
                 });

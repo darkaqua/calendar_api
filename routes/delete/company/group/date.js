@@ -105,6 +105,7 @@ const deleteCompanyGroupDate = (company_uuid, group_id, date_id) => {
                 valid: true,
                 message: `Se ha eliminado la fecha con éxito`
             });
+            sql_conn.end();
         });
     });
 };

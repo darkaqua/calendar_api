@@ -73,6 +73,7 @@ module.exports = (app, express, request, response, next) => {
                     const sql_result = sql_results[0];
                     if (sql_result.count !== 1) {
                         response.json({valid: false, message: `El código de pais no es valido`});
+                        sql_conn.end();
                         return;
                     }
 
@@ -102,6 +103,7 @@ module.exports = (app, express, request, response, next) => {
                         )`;
                     sql_conn.query(query,(err) => {
                         response.json({ valid: true, company_uuid: company_uuid });
+                        sql_conn.end();
                     });
                 }
             );

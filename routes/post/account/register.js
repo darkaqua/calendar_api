@@ -111,6 +111,7 @@ const getRegisterResponse = (
                 const sql_result = sql_results[0];
                 if(sql_result.count !== 1){
                     promise_result({ valid: false, message: `El código de pais no es valido` });
+                    sql_conn.end();
                     return;
                 }
                 //Username repetido
@@ -153,6 +154,7 @@ const getRegisterResponse = (
                             (sql_error_3, sql_results_3, sql_fields_3) => {
                                 metrics_registerd_users.metric.inc();
                                 promise_result({ valid: true }); //Volver al login
+                                sql_conn.end();
                             }
                         );
 

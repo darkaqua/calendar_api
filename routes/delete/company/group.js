@@ -72,6 +72,7 @@ const deleteCompanyGroup = (company_uuid, group_id) => {
                 valid: true,
                 message: `Se ha eliminado el grupo con éxito`
             });
+            sql_conn.end();
         });
     });
 };
