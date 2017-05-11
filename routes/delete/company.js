@@ -40,6 +40,7 @@ module.exports = (app, express, request, response, next) => {
                 const sql_query = `DELETE FROM Company WHERE uuid=${sql_conn.escape(body.uuid)}`;
                 sql_conn.query(sql_query, () => {
                     response.json({ valid: true, message: `Se ha eliminado con éxito la compañia` });
+                    sql_conn.end();
                 });
             });
         });

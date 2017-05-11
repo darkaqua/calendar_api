@@ -48,7 +48,7 @@ module.exports = (app, express, request, response, next) => {
                     sql_results.map((user) => user.user_uuid)
                         .forEach((user_uuid) => promises.push(global.functions.getUserInfo(user_uuid, false)) );
                     Promise.all(promises).then((res) => response.json(res));
-
+                    sql_conn.end();
                 });
             });
         });

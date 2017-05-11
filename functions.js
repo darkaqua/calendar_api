@@ -22,6 +22,7 @@ const e = global.functions = {
 
                     if(sql_result === undefined){
                         promise_result({ valid: false, message: err_message});
+                        sql_conn.end();
                         return;
                     }
 
@@ -29,10 +30,12 @@ const e = global.functions = {
 
                     if(!crypt_utils.bcrypt_verify(client_token, client_hash)){
                         promise_result({ valid: false, message: err_message});
+                        sql_conn.end();
                         return;
                     }
 
                     promise_result({ valid: true, user_uuid: sql_result.fk_user_uuid });
+                    sql_conn.end();
                 }
             );
         });
@@ -43,6 +46,7 @@ const e = global.functions = {
             const query = `SELECT COUNT(*) AS count FROM User WHERE uuid=${sql_conn.escape(uuid)}`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -52,6 +56,7 @@ const e = global.functions = {
             const query = `SELECT COUNT(*) AS count FROM User WHERE username=${sql_conn.escape(username)}`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -61,6 +66,7 @@ const e = global.functions = {
             const query = `SELECT uuid FROM User WHERE username=${sql_conn.escape(username)}`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].uuid);
+                sql_conn.end();
             });
         });
     },
@@ -70,6 +76,7 @@ const e = global.functions = {
             const query = `SELECT COUNT(*) AS count FROM Company WHERE uuid=${sql_conn.escape(company_uuid)}`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -83,6 +90,7 @@ const e = global.functions = {
                 AND fk_user_uuid=${sql_conn.escape(user_uuid)}`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -97,6 +105,7 @@ const e = global.functions = {
                 AND fk_user_uuid=${sql_conn.escape(user_uuid)}`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -110,6 +119,7 @@ const e = global.functions = {
                 AND id=${sql_conn.escape(group_id)}`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -124,6 +134,7 @@ const e = global.functions = {
                 AND id=${sql_conn.escape(date_id)}`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -138,6 +149,7 @@ const e = global.functions = {
                 AND can_edit='1'`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -153,6 +165,7 @@ const e = global.functions = {
                 AND can_edit='1'`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -169,6 +182,7 @@ const e = global.functions = {
                 AND can_edit='1'`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0].count === 1);
+                sql_conn.end();
             });
         });
     },
@@ -202,6 +216,7 @@ const e = global.functions = {
                 company.can_edit = sql_results[1][0].can_edit;
                 company.country = sql_results[2][0];
                 promise_result(company);
+                sql_conn.end();
             });
         });
     },
@@ -223,6 +238,7 @@ const e = global.functions = {
                 let group = sql_results[0][0];
                 group.can_edit = sql_results[1][0].can_edit;
                 promise_result(group);
+                sql_conn.end();
             });
         });
     },
@@ -250,6 +266,7 @@ const e = global.functions = {
                             register_timestamp: sql_result.register_timestamp
                         };
                         promise_result(content);
+                        sql_conn.end();
                         return;
                     }
                     //El contenido del usuario es privado
@@ -261,6 +278,7 @@ const e = global.functions = {
                     sql_result.country_name = sql_result.country_code = undefined;
                     sql_result.country = country;
                     promise_result(sql_result);
+                    sql_conn.end();
                 }
             );
         });
@@ -274,6 +292,7 @@ const e = global.functions = {
                         group_count: user_max_quota.group_count - user_current_quota.group_count,
                         user_count: user_max_quota.user_count - user_current_quota.user_count
                     });
+                    sql_conn.end();
                 });
             });
         });
@@ -292,6 +311,7 @@ const e = global.functions = {
                 AND fk_user_uuid=${sql_conn.escape(user_uuid)}`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 promise_result(sql_results[0])
+                sql_conn.end();
             });
         });
     },
@@ -332,6 +352,7 @@ const e = global.functions = {
                     group_count: sql_results[1][0].group_count,
                     user_count: sql_results[2][0].user_count
                 });
+                sql_conn.end();
             });
         });
     }

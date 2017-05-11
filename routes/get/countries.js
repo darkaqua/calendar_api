@@ -10,6 +10,7 @@ module.exports = (app, express, request, response, next) => {
         query,
         (sql_error, sql_results, sql_fields) => {
             response.json(sql_results);
+            sql_conn.end();
         }
     );
 };

@@ -85,6 +85,7 @@ const deleteUser = (company_uuid, user_uuid, is_same_user) => {
                     ? `Te has salido de la compañia con éxito`
                     : `Se ha eliminado al usuario con éxito`
             });
+            sql_conn.end();
         });
     });
 };

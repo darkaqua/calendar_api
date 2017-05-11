@@ -22,7 +22,7 @@ module.exports = (app, express, request, response, next) => {
             sql_results
                 .forEach((res) => promises.push(global.functions.getCompanyGroupInfo(res.company_uuid, res.group_id, auth.user_uuid)) );
             Promise.all(promises).then((res) => response.json(res));
-
+            sql_conn.end();
         })
         
     });

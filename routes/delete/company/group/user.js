@@ -109,6 +109,7 @@ const deleteUser = (company_uuid, group_id, user_uuid) => {
                 valid: true,
                 message: `Se ha eliminado al usuario con éxito`
             });
+            sql_conn.end();
         });
     });
 };

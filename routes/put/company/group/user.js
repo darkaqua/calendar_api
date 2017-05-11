@@ -114,6 +114,7 @@ const addUser = (company_uuid, group_id, user_uuid, can_edit) => {
                 valid: true,
                 message: `Se ha añadido al usuario con éxito`
             });
+            sql_conn.end();
         });
     });
 };
