@@ -11,27 +11,27 @@ module.exports = (app, express, request, response, next) => {
             return;
         }
 
-        const query = request.query;
+        const body = request.body;
 
-        if(query.uuid === undefined){
+        if(body.company_uuid === undefined){
             response.json({ valid: false, message: "No se ha introducido ninguna uuid" });
             return;
         }
 
         //Verificacion de la uuid
-        if(!validators.verifyUUID(query.uuid)){
+        if(!validators.verifyUUID(body.company_uuid)){
             response.json({ valid: false, message: "La uuid no es valida" });
             return;
         }
 
-        global.functions.isCompanyRegistered(query.uuid).then((isCompanyRegistered) => {
+        global.functions.isCompanyRegistered(body.company_uuid).then((isCompanyRegistered) => {
 
             if(!isCompanyRegistered){
                 response.json({ valid: false, message: "La compañia no esta registrada" });
                 return;
             }
 
-            global.functions.getCompanyInfo(query.uuid, auth.user_uuid).then((company) => {
+            global.functions.getCompanyInfo(body.company_uuid, auth.user_uuid).then((company) => {
                 response.json({ valid: true, content: company });
             });
 
