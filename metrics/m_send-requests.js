@@ -5,7 +5,7 @@ const probe = require('pmx').probe();
 
 module.exports.init = () => {
     module.exports.counter = probe.counter({
-        name    : 'Registered users',
+        name    : 'Total requests',
         value   : () => { return 0 }
     });
 };
