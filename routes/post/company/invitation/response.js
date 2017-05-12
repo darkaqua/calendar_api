@@ -40,6 +40,7 @@ module.exports = (app, express, request, response, next) => {
 
             if(sql_results[0].count === 0){
                 response.json({ valid: false, message: `La solcitud no existe` });
+                sql_conn.end();
                 return;
             }
 
@@ -54,6 +55,7 @@ module.exports = (app, express, request, response, next) => {
                     AND fk_company_uuid=${sql_conn.escape(body.company_uuid)}`;
                 sql_conn.query(query, (sql_error_2, sql_results_2, sql_fields_2) => {
                     response.json({ valid: true, message: `La solcitud ha sido aceptada!` });
+                    sql_conn.end();
                 });
                 return;
             }
@@ -64,6 +66,7 @@ module.exports = (app, express, request, response, next) => {
                 AND fk_company_uuid=${sql_conn.escape(body.company_uuid)}`;
             sql_conn.query(query, (sql_error_2, sql_results_2, sql_fields_2) => {
                 response.json({ valid: true, message: `La solcitud ha sido rechazada!` });
+                sql_conn.end();
             });
         });
 

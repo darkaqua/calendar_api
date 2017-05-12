@@ -3,8 +3,18 @@
  */
 const fs = require('fs');
 const path = require("path");
+const send_request = require("./metrics/m_send-requests");
 
 module.exports = (app, express) => {
+
+    const incrementSendRequests = () => {
+        send_request.counter.inc();
+    };
+
+    const appRequest = (complete_route, app, express, request, response, next) => {
+        incrementSendRequests();
+        require(complete_route)(app, express, request, response, next)
+    };
 
     const readRoutes = (directory = '') => {
         fs.readdirSync(path.join(__dirname, `routes/${directory}`)).forEach((name) =>{
@@ -19,22 +29,22 @@ module.exports = (app, express) => {
             switch (route_name.split(`/`)[0]){
                 case `get`:
                     app.get(`${route_name.replace('get', '')}`, (request, response, next) =>
-                        require(complete_route)(app, express, request, response, next)
+                        appRequest(complete_route, app, express, request, response, next)
                     );
                     break;
                 case `post`:
                     app.post(`${route_name.replace('post', '')}`, (request, response, next) =>
-                        require(complete_route)(app, express, request, response, next)
+                        appRequest(complete_route, app, express, request, response, next)
                     );
                     break;
                 case `delete`:
                     app.delete(`${route_name.replace('delete', '')}`, (request, response, next) =>
-                        require(complete_route)(app, express, request, response, next)
+                        appRequest(complete_route, app, express, request, response, next)
                     );
                     break;
                 case `put`:
                     app.put(`${route_name.replace('put', '')}`, (request, response, next) =>
-                        require(complete_route)(app, express, request, response, next)
+                        appRequest(complete_route, app, express, request, response, next)
                     );
                     break;
             }
@@ -44,9 +54,15 @@ module.exports = (app, express) => {
     readRoutes();
 
     const pkg = global.package;
-    const basic_msg = { message:`${pkg.name} - versión ${pkg.version}`};
-    app.get('*', (request, response, next) => response.json(basic_msg));
-    app.post('*', (request, response, next) => response.json(basic_msg));
-    app.delete('*', (request, response, next) => response.json(basic_msg));
-    app.put('*', (request, response, next) => response.json(basic_msg));
+    const responseBasic = (response) => {
+        incrementSendRequests();
+        response.json(`${pkg.name} - versión ${pkg.version}`);
+    };
+
+    app.get('*', (request, response, next) => responseBasic(response));
+    app.post('*', (request, response, next) => responseBasic(response));
+    app.delete('*', (request, response, next) => responseBasic(response));
+    app.put('*', (request, response, next) => responseBasic(response));
+
+
 };

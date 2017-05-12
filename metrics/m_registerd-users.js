@@ -5,7 +5,7 @@ const probe = require('pmx').probe();
 const sql_source = require('../utils/sql-source');
 
 module.exports.init = () => {
-    module.exports.metric = probe.metric({
+    module.exports.counter = probe.counter({
         name    : 'Registered users'
     });
 
@@ -15,7 +15,7 @@ module.exports.init = () => {
         if(sql_error) return;
         if(!sql_results.length) return;
 
-        module.exports.metric.set(sql_results[0].count);
+        module.exports.counter.inc(sql_results[0].count);
 
         sql_conn.end();
     });

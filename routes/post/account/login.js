@@ -65,6 +65,7 @@ const getLoginResponse = (email, password) => {
                     () => {
                         //Envia la id del cliente el token
                         promise_result({ valid: true, client_id: client_id, client_token: client_token.raw });
+                        sql_conn.end();
                     }
                 );
             }

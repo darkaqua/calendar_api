@@ -19,6 +19,7 @@ module.exports = (app, express, request, response, next) => {
             AND fk_user_uuid=${sql_conn.escape(auth.user_uuid)}`;
         sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
             response.json(sql_results);
+            sql_conn.end();
         });
 
     });
