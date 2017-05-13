@@ -56,7 +56,7 @@ module.exports = (app, express) => {
     const pkg = global.package;
     const responseBasic = (response) => {
         incrementSendRequests();
-        response.json(`${pkg.name} - versión ${pkg.version}`);
+        response.json( {info: `${pkg.name} - versión ${pkg.version}`});
     };
 
     app.get('*', (request, response, next) => responseBasic(response));
