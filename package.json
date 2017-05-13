@@ -1,6 +1,6 @@
 {
   "name": "calendar_api",
-  "version": "0.0.1",
+  "version": "1.0.7",
   "scripts": {
     "test": "node main.js",
     "start on changes": "nodemon main.js",
