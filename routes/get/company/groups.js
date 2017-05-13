@@ -11,7 +11,7 @@ module.exports = (app, express, request, response, next) => {
             response.json(auth);
             return;
         }
-        const body = request.body;
+        const body = JSON.parse(request.query.params);
 
         if(body.company_uuid === undefined){
             response.json({ valid: false, message: "No se ha introducido ninguna uuid" });
