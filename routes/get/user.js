@@ -18,22 +18,22 @@ module.exports = (app, express, request, response, next) => {
             );
 
         global.functions.getUserUUIDFromClientId(request.headers.client_id).then(user_uuid => {
-            if (body.user_uuid === undefined) body.user_uuid = user_uuid;
+            if (body.user_uuid !== undefined) user_uuid = body.user_uuid;
 
             //Verificacion de la uuid
-            if (!validators.verifyUUID(body.user_uuid)) {
+            if (!validators.verifyUUID(user_uuid)) {
                 response.json({valid: false, message: "La uuid no es valida"});
                 return;
             }
 
-            global.functions.isUserUUIDRegistered(body.user_uuid).then((isUserRegistered) => {
+            global.functions.isUserUUIDRegistered(user_uuid).then((isUserRegistered) => {
 
                 if(!isUserRegistered){
                     response.json({valid: false, message: "El usuario no esta registrado"});
                     return;
                 }
 
-                global.functions.getUserInfo(body.user_uuid, auth.user_uuid === body.user_uuid).then((data) => {
+                global.functions.getUserInfo(user_uuid, auth.user_uuid === user_uuid).then((data) => {
                     response.json(data);
                 });
             });
