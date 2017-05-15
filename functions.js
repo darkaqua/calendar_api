@@ -315,6 +315,19 @@ const e = global.functions = {
             });
         });
     },
+    getUserUUIDFromClientId: (client_id) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT fk_user_uuid AS user_uuid
+                FROM UserSession 
+                WHERE client_id=${sql_conn.escape(client_id)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].user_uuid);
+                sql_conn.end();
+            });
+        });
+    },
     getUserCurrentQuota: (user_uuid) => {
         return new Promise((promise_result, promise_error) => {
             const sql_conn = sql_source.connection();
