@@ -18,7 +18,7 @@ module.exports = (app, express, request, response, next) => {
             );
 
         global.functions.getUserUUIDFromClientId(request.headers.client_id).then(user_uuid => {
-            if (body.user_uuid !== undefined) user_uuid = body.user_uuid;
+            if (body !== null) user_uuid = body.user_uuid;
 
             //Verificacion de la uuid
             if (!validators.verifyUUID(user_uuid)) {
