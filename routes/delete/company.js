@@ -16,13 +16,13 @@ module.exports = (app, express, request, response, next) => {
             response.json({ valid: false, message: `La uuid de la compañia no puede estar vacia` });
             return;
         }
-        if(!validators.verifyUUID(body.uuid)){
+        if(!validators.verifyUUID(body.company_uuid)){
             response.json({ valid: false, message: `La uuid de la compañia no es valida` });
             return;
         }
 
         //Verificar que la compañia existe
-        global.functions.isCompanyRegistered(body.uuid).then((isCompanyRegistered) => {
+        global.functions.isCompanyRegistered(body.company_uuid).then((isCompanyRegistered) => {
             if(!isCompanyRegistered){
                 response.json({ valid: false, message: `La compañia no existe` });
                 return;
@@ -37,7 +37,7 @@ module.exports = (app, express, request, response, next) => {
                     return;
                 }
                 const sql_conn = sql_source.connection();
-                const sql_query = `DELETE FROM Company WHERE uuid=${sql_conn.escape(body.uuid)}`;
+                const sql_query = `DELETE FROM Company WHERE uuid=${sql_conn.escape(body.company_uuid)}`;
                 sql_conn.query(sql_query, () => {
                     response.json({ valid: true, message: `Se ha eliminado con éxito la compañia` });
                     sql_conn.end();
