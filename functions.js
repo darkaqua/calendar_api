@@ -190,7 +190,7 @@ const e = global.functions = {
                 `SELECT COUNT(*) AS count 
                 FROM UserLinkedCompanyGroupDate 
                 WHERE fk_company_uuid=${sql_conn.escape(company_uuid)} 
-                AMD fk_date_id=${sql_conn.escape(date_id)} 
+                AND fk_date_id=${sql_conn.escape(date_id)} 
                 AND fk_group_id=${sql_conn.escape(group_id)} 
                 AND fk_user_uuid=${sql_conn.escape(user_uuid)}
                 AND can_edit='1'`;

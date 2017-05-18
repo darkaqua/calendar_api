@@ -54,7 +54,7 @@ module.exports = (app, express, request, response, next) => {
                     return;
                 }
                 //Comprobar si el usuario tiene permiso para editar la fecha
-                global.functions.hasUserPermissionToEditCompanyGroupDate()
+                global.functions.hasUserPermissionToEditCompanyGroupDate(body.company_uuid, body.group_id, body.date_id, auth.user_uuid)
                     .then(hasUserPermissionToEditCompanyGroupDate => {
 
                     global.functions.hasUserPermissionToEditCompanyGroup(body.company_uuid, body.group_id, auth.user_uuid)
@@ -71,7 +71,7 @@ module.exports = (app, express, request, response, next) => {
                             }
 
                             //Comprobar si la id del grupo existe
-                            global.functions.isCompanyGroupDateRegistered()
+                            global.functions.isCompanyGroupDateRegistered(body.company_uuid, body.group_id, body.date_id)
                                 .then(isCompanyGroupDateRegistered => {
 
                                 if(!isCompanyGroupDateRegistered){
@@ -80,7 +80,7 @@ module.exports = (app, express, request, response, next) => {
                                 }
 
                                 //Eliminar fecha del grupo de la compañia
-                                deleteCompanyGroupDate()
+                                deleteCompanyGroupDate(body.company_uuid, body.group_id, body.date_id)
                                     .then(res => response.json(res));
                             });
 
