@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-05-09T13:02:36.154Z",
+	"__export_date": "2017-05-18T01:29:07.917Z",
 	"__export_source": "insomnia.desktop.app:v5.0.20",
 	"resources": [
 		{
@@ -17,22 +17,23 @@
 		{
 			"_id": "env_4c52ac561de74d9f8099efb9d94d5999",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1493993958415,
+			"modified": 1495070147727,
 			"created": 1490224620484,
 			"name": "Base Environment",
 			"data": {
-				"base_url": "http://calendar.darkaqua.net:8080/",
+				"base_url_": "http://calendar.darkaqua.net:8080/",
+				"base_url": "http://localhost:22322/",
 				"client_id_": "664041eaab8c84d2571737de5688b731699622a3d5537c1008fc82125f62c522",
 				"client_token_": "b0fe76b302bc4bde0317d34ace5c444148950497941a575861f51513b9c82cd1",
-				"client_id": "6eb3c233aed8d4db2e21bd72c769864c9dad06475c5b7fb8e8537b618b418b51",
-				"client_token": "48700148d6b34612264cbc940455a706c0888701f2f37aab0be9786c78fd4820"
+				"client_id": "b471a17e3371f3d223b390f108bb989f3dc7d3f432cfbff9f9c29ac80e10bb97",
+				"client_token": "5538fcbc29f7066ba02d5c024d3e3f4de49a0526f50f9b224325693d5472b851"
 			},
 			"_type": "environment"
 		},
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1493995006118,
+			"modified": 1495070820189,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -178,28 +179,31 @@
 		{
 			"_id": "req_fb010ff933ea4457a0c19b59a530ce4a",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1492818303496,
+			"modified": 1494499031364,
 			"created": 1490457364405,
 			"url": "{{base_url}}user",
 			"name": "User",
 			"method": "GET",
 			"body": {
-				"text": ""
+				"mimeType": "application/json",
+				"text": "{\n\t\"user_uuid\": \"290b6dc2-ce74-48e9-ace2-ac9fdbd5b5a8\"\n}"
 			},
-			"parameters": [
-				{
-					"name": "uuid",
-					"value": "290b6dc2-ce74-48e9-ace2-ac9fdbd5b5a8"
-				}
-			],
+			"parameters": [],
 			"headers": [
 				{
 					"name": "client_id",
-					"value": "{{client_id}}"
+					"value": "{{client_id}}",
+					"id": "pair_fc988d8498734d558e02f420d4a25f1e"
 				},
 				{
 					"name": "client_token",
-					"value": "{{client_token}}"
+					"value": "{{client_token}}",
+					"id": "pair_343815a9a7144fc8ae7f2759ea8c41a2"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_2015b1baa37b48a79e86607ea9bc8ea8"
 				}
 			],
 			"authentication": {},
@@ -213,28 +217,31 @@
 		{
 			"_id": "req_9383a520317a42a1abe38eb7ed24cdd1",
 			"parentId": "fld_8faeda91e6b94521807ca01285f26010",
-			"modified": 1492818303474,
+			"modified": 1494499526787,
 			"created": 1490888149190,
 			"url": "{{base_url}}company",
 			"name": "Company",
 			"method": "GET",
 			"body": {
-				"text": ""
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\"\n}"
 			},
-			"parameters": [
-				{
-					"name": "uuid",
-					"value": "82542ca3-42c6-4764-83ef-566f7c344bec"
-				}
-			],
+			"parameters": [],
 			"headers": [
 				{
 					"name": "client_id",
-					"value": "{{client_id}}"
+					"value": "{{client_id}}",
+					"id": "pair_02afa0d26f004ee08a173b4d56e67374"
 				},
 				{
 					"name": "client_token",
-					"value": "{{client_token}}"
+					"value": "{{client_token}}",
+					"id": "pair_1e8888e36b1a4b48bc975faa7bd01a46"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_aae8d9c47cc94264bb39d0c98545eb76"
 				}
 			],
 			"authentication": {},
@@ -336,14 +343,14 @@
 		{
 			"_id": "req_4e3aff557cea461398771b6870989b7e",
 			"parentId": "fld_5d2e8df1904a4ca6bf7fbc7aece589f2",
-			"modified": 1492818303363,
+			"modified": 1494426284049,
 			"created": 1490738251098,
 			"url": "{{base_url}}company",
 			"name": "Company",
 			"method": "DELETE",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"company_uuid\": \"4c06fdfc-fcdd-4ace-acc0-dd8774d5f273\"\n}"
+				"text": "{\n\t\"company_uuid\": \"2a385491-ce28-466c-a3aa-fde80329ebfe\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -386,7 +393,7 @@
 		{
 			"_id": "req_058cbfdc00f74c46b9da9d00368b26c5",
 			"parentId": "fld_4bab1c3707f04bba839e1e2a475fa8ce",
-			"modified": 1492818303328,
+			"modified": 1495070190201,
 			"created": 1490461582238,
 			"url": "{{base_url}}company",
 			"name": "Company",
@@ -489,7 +496,7 @@
 		{
 			"_id": "req_83f66f4669114c74ad747c113b295bb8",
 			"parentId": "fld_2002fa0e78a840f79562943d384b4a78",
-			"modified": 1492818303255,
+			"modified": 1494519032882,
 			"created": 1490883051933,
 			"url": "{{base_url}}companies",
 			"name": "Companies",
@@ -551,28 +558,31 @@
 		{
 			"_id": "req_98a170488e884fa9b19f032fd78a3a2a",
 			"parentId": "fld_c2d196499cde425ba458c0135aeefeeb",
-			"modified": 1492818303191,
+			"modified": 1494690977721,
 			"created": 1490971144524,
 			"url": "{{base_url}}users",
 			"name": "Users",
 			"method": "GET",
 			"body": {
-				"text": ""
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\"\n}"
 			},
-			"parameters": [
-				{
-					"name": "uuid",
-					"value": "0aa7b5a2-2d91-4636-82f2-adbd27ec9a73"
-				}
-			],
+			"parameters": [],
 			"headers": [
 				{
 					"name": "client_id",
-					"value": "{{client_id}}"
+					"value": "{{client_id}}",
+					"id": "pair_147f0f8ade934e01bbb8030951a7568a"
 				},
 				{
 					"name": "client_token",
-					"value": "{{client_token}}"
+					"value": "{{client_token}}",
+					"id": "pair_f822b607d1424b63868a59196acf6014"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_909d639e12de4ea1b4092d21f4ac70fe"
 				}
 			],
 			"authentication": {},
@@ -586,21 +596,16 @@
 		{
 			"_id": "req_a66410901ec4411caf1048d6cdd46b0f",
 			"parentId": "fld_c2d196499cde425ba458c0135aeefeeb",
-			"modified": 1492818303186,
+			"modified": 1494499486310,
 			"created": 1492271446961,
 			"url": "{{base_url}}groups",
 			"name": "Groups",
 			"method": "GET",
 			"body": {
-				"text": ""
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\"\n}"
 			},
-			"parameters": [
-				{
-					"name": "uuid",
-					"value": "82542ca3-42c6-4764-83ef-566f7c344bec",
-					"id": "pair_43d16c5e0ebc4dc8bb980ff4b7a9a95e"
-				}
-			],
+			"parameters": [],
 			"headers": [
 				{
 					"name": "client_id",
@@ -611,6 +616,11 @@
 					"name": "client_token",
 					"value": "{{client_token}}",
 					"id": "pair_335e629b90284fb5b32afa13fa53f5ac"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_cd0b82f3628e4d0ca0a06eb956387720"
 				}
 			],
 			"authentication": {},
@@ -624,14 +634,14 @@
 		{
 			"_id": "req_48ef443fc5774c98bb686849d482e230",
 			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
-			"modified": 1493994854826,
+			"modified": 1494499006050,
 			"created": 1490224838667,
 			"url": "{{base_url}}login",
 			"name": "Login",
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"email\": \"pagoru3@gmail.com\",\n\t\"password\": \"123456789\"\n}"
+				"text": "{\n\t\"email\": \"pagoru@gmail.com\",\n\t\"password\": \"123456\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -656,20 +666,21 @@
 		{
 			"_id": "req_53ba3c40bcd64f699dcb6ef526090aae",
 			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
-			"modified": 1492818303176,
+			"modified": 1494423238744,
 			"created": 1490226615900,
 			"url": "{{base_url}}register",
 			"name": "Register",
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"Test1\",\n\t\"username\": \"test1\",\n\t\"email\": \"pagoru3@gmail.com\",\n\t\"re_email\": \"pagoru3@gmail.com\",\n\t\"password\": \"123456789\",\n\t\"re_password\": \"123456789\",\n\t\"country\": \"ES\"\n\t\n}"
+				"text": "{\n\t\"name\": \"Test1\",\n\t\"username\": \"test19\",\n\t\"email\": \"pagoru4@gmail.com\",\n\t\"re_email\": \"pagoru4@gmail.com\",\n\t\"telephone\": \"123123123\",\n\t\"password\": \"123456789\",\n\t\"re_password\": \"123456789\",\n\t\"country\": \"ES\"\n\t\n}"
 			},
 			"parameters": [],
 			"headers": [
 				{
 					"name": "Content-Type",
-					"value": "application/json"
+					"value": "application/json",
+					"id": "pair_dfa79e30fd7b4149b67ec6305d2a9341"
 				}
 			],
 			"authentication": {
@@ -862,14 +873,14 @@
 		{
 			"_id": "req_3555dfde7d9745a796a5cf41a4680ba8",
 			"parentId": "fld_5e2e8cb3ae4844debbfb2cbdc5593513",
-			"modified": 1492818303134,
+			"modified": 1495070274953,
 			"created": 1491329676518,
 			"url": "{{base_url}}group",
 			"name": "Group",
 			"method": "PUT",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"company_uuid\": \"82542ca3-42c6-4764-83ef-566f7c344bec\",\n\t\"name\": \"group test 1\",\n\t\"description\": \"test descripcion\"\n}"
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\",\n\t\"name\": \"group test 1\",\n\t\"description\": \"test descripcion\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -900,19 +911,16 @@
 		{
 			"_id": "req_34a7f5ef36834570817677b3d6218dc5",
 			"parentId": "fld_df30165048564d40aa61da6dcb91db00",
-			"modified": 1492818303130,
+			"modified": 1494499503331,
 			"created": 1492211616952,
 			"url": "{{base_url}}groups",
 			"name": "Groups",
 			"method": "GET",
-			"body": {},
-			"parameters": [
-				{
-					"name": "uuid",
-					"value": "82542ca3-42c6-4764-83ef-566f7c344bec",
-					"id": "pair_bebe04d528724298ae80092d0cfe35fd"
-				}
-			],
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\"\n}"
+			},
+			"parameters": [],
 			"headers": [
 				{
 					"name": "client_id",
@@ -923,6 +931,11 @@
 					"name": "client_token",
 					"value": "{{ client_token }}",
 					"id": "pair_c08a939138164d9eb1d902479b75e483"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_2725aa80c8ef464d8a8b996db96c0951"
 				}
 			],
 			"authentication": {},
@@ -1006,7 +1019,7 @@
 		{
 			"_id": "req_e48eafffaba44ad78400acd299f2ef57",
 			"parentId": "fld_708ed9946ffb4a65a5f699de45e86805",
-			"modified": 1494253852334,
+			"modified": 1494340731468,
 			"created": 1491932453345,
 			"url": "{{base_url}}user",
 			"name": "User",
@@ -1044,7 +1057,7 @@
 		{
 			"_id": "req_cea0047e75df45f4bc3c1048a446139f",
 			"parentId": "fld_708ed9946ffb4a65a5f699de45e86805",
-			"modified": 1494334661221,
+			"modified": 1494340744522,
 			"created": 1494334626053,
 			"url": "{{base_url}}date",
 			"name": "Date",
@@ -1082,7 +1095,7 @@
 		{
 			"_id": "req_5a10a6b22426465caf5b807d4f6ca98d",
 			"parentId": "fld_ce811b2b5a5b45dfab27f20d220094fa",
-			"modified": 1492818303095,
+			"modified": 1494606141355,
 			"created": 1492187865645,
 			"url": "{{base_url}}user",
 			"name": "User",
@@ -1111,6 +1124,44 @@
 			],
 			"authentication": {},
 			"metaSortKey": -1492187865645,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_ce0981f73d9c407ebbecf29283bf2c79",
+			"parentId": "fld_ce811b2b5a5b45dfab27f20d220094fa",
+			"modified": 1495070817425,
+			"created": 1495070158192,
+			"url": "{{base_url}}date",
+			"name": "Date",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\",\n\t\"group_id\": 0,\n\t\"title\": \"Quedada masiva de clientes\",\n\t\"description\": \"test descripcion\",\n\t\"datetime\": \"15/05/2017 17:13\",\n\t\"long_minutes\": 20\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_7e1a7ec5c78e4008a80bb689450e995e"
+				},
+				{
+					"name": "client_id",
+					"value": "{{client_id}}",
+					"id": "pair_70d5447d6e9246d993ad66296d17edef"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}",
+					"id": "pair_f9f440602979491e9adfc4876bdb2ea4"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1492187865695,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
 			"settingDisableRenderRequestBody": false,
