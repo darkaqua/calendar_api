@@ -80,6 +80,20 @@ const e = global.functions = {
             });
         });
     },
+    isGroupRegistered: (company_uuid, group_id) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query = `
+            SELECT COUNT(*) AS count 
+            FROM CompanyGroup 
+            WHERE id=${sql_conn.escape(group_id)} 
+            AND fk_company_uuid=${sql_conn.escape(company_uuid)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].count === 1);
+                sql_conn.end();
+            });
+        });
+    },
     isUserFromCompany: (company_uuid, user_uuid) => {
         return new Promise((promise_result, promise_error) => {
             const sql_conn = sql_source.connection();
@@ -292,7 +306,6 @@ const e = global.functions = {
                         group_count: user_max_quota.group_count - user_current_quota.group_count,
                         user_count: user_max_quota.user_count - user_current_quota.user_count
                     });
-                    sql_conn.end();
                 });
             });
         });
@@ -368,5 +381,9 @@ const e = global.functions = {
                 sql_conn.end();
             });
         });
+    },
+    isValidDate: (datetime) => {
+        const datetimeRegex = /^(\d{1,2})\/(\d{1,2})\/(\d{4}) (\d{1,2}):(\d{1,2})$/;
+        return new RegExp(datetimeRegex).test(datetime);
     }
 };
