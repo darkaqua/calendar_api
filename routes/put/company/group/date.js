@@ -122,7 +122,7 @@ module.exports = (app, express, request, response, next) => {
                             );
                             SELECT @next_id AS date_id`;
                         sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
-                            response.json({ valid: true, group_id: sql_results[4][0].date_id});
+                            response.json({ valid: true, date_id: sql_results[4][0].date_id});
                             sql_conn.end();
                         });
                     });
