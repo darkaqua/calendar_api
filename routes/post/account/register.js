@@ -40,7 +40,7 @@ const getRegisterResponse = (
             promise_result({ valid: false, message: `El campo del nombre no puede estar vacio` });
             return;
         }
-        if(name.length <= 4){
+        if(name.length < 4){
             promise_result({ valid: false, message: `El nombre debe contener más carácteres` });
             return;
         }
