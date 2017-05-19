@@ -250,7 +250,7 @@ const e = global.functions = {
                 AND fk_user_uuid=${sql_conn.escape(user_uuid)};`;
             sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
                 let group = sql_results[0][0];
-                group.can_edit = sql_results[1][0].can_edit;
+                if(sql_results[1][0] !== undefined) group.can_edit = sql_results[1][0].can_edit;
                 promise_result(group);
                 sql_conn.end();
             });
