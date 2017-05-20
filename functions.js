@@ -168,6 +168,19 @@ const e = global.functions = {
             });
         });
     },
+    isPaymentOptionAvailable: (payment_id) => {
+        return new Promise((promise_result, promise_error) => {
+            const sql_conn = sql_source.connection();
+            const query =
+                `SELECT COUNT(*) AS count 
+                FROM PaymentOption 
+                WHERE id=${sql_conn.escape(payment_id)}`;
+            sql_conn.query(query, (sql_error, sql_results, sql_fields) => {
+                promise_result(sql_results[0].count === 1);
+                sql_conn.end();
+            });
+        });
+    },
     hasUserPermissionToEditCompany: (company_uuid, user_uuid) => {
         return new Promise((promise_result, promise_error) => {
             const sql_conn = sql_source.connection();

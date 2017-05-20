@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-05-20T16:24:56.916Z",
+	"__export_date": "2017-05-20T22:22:26.255Z",
 	"__export_source": "insomnia.desktop.app:v5.0.20",
 	"resources": [
 		{
@@ -33,7 +33,7 @@
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1495297470999,
+			"modified": 1495318904570,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -823,6 +823,44 @@
 			],
 			"authentication": {},
 			"metaSortKey": -1492697270118,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_7c4051a7e3044af8b94f82316b8cd9f0",
+			"parentId": "fld_dd30c4853d1045a2b5f93d7614c8d778",
+			"modified": 1495318877115,
+			"created": 1495318752945,
+			"url": "{{base_url}}payment",
+			"name": "Payment",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"payment_id\": 1\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_335de268351649d5a304e69cd9337d37"
+				},
+				{
+					"name": "client_id",
+					"value": "{{client_id}}",
+					"id": "pair_25246b85d5084c54b9ecda67a10b5e36"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}",
+					"id": "pair_28ab6b59c78d4752ba543bd6176f6c22"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1492697270168,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
 			"settingDisableRenderRequestBody": false,
