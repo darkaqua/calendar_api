@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-05-20T22:22:26.255Z",
+	"__export_date": "2017-05-21T13:18:26.305Z",
 	"__export_source": "insomnia.desktop.app:v5.0.20",
 	"resources": [
 		{
@@ -33,7 +33,7 @@
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1495318904570,
+			"modified": 1495372696209,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -1202,6 +1202,18 @@
 			"_type": "request"
 		},
 		{
+			"_id": "fld_3219e8c79b3c41a3ad899fb8ef2186c7",
+			"parentId": "fld_708ed9946ffb4a65a5f699de45e86805",
+			"modified": 1495372577042,
+			"created": 1495372559630,
+			"name": "Date",
+			"environment": {
+				"base_url": "{{base_url}}date/"
+			},
+			"metaSortKey": -1495372559630,
+			"_type": "request_group"
+		},
+		{
 			"_id": "req_e48eafffaba44ad78400acd299f2ef57",
 			"parentId": "fld_708ed9946ffb4a65a5f699de45e86805",
 			"modified": 1495290754320,
@@ -1359,6 +1371,44 @@
 			],
 			"authentication": {},
 			"metaSortKey": -1492187865695,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_d2b9556154d74fc5939a3996348d9975",
+			"parentId": "fld_3219e8c79b3c41a3ad899fb8ef2186c7",
+			"modified": 1495372674045,
+			"created": 1495372586304,
+			"url": "{{base_url}}user",
+			"name": "User",
+			"method": "DELETE",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"group_id\": 0,\n\t\"date_id\": 0,\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\",\n\t\"user_uuid\": \"68461be9-5e30-4ee4-9d5a-dd5ff652e6c8\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}",
+					"id": "pair_cf4f4af9e1154831bd1084dd2182129e"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}",
+					"id": "pair_fea0711d394443eb8688cb90ba4f7748"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_3e25958272e643aca766116695dee350"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1491931386537.5,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
 			"settingDisableRenderRequestBody": false,
