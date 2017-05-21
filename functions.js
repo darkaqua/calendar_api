@@ -292,7 +292,7 @@ const e = global.functions = {
                 `SELECT id, fk_group_id AS group_id, fk_company_uuid AS company_uuid,
                 title, description, datetime, long_minutes 
                 FROM CompanyGroupDate
-                WHERE id=${sql_conn.escape(group_id)} 
+                WHERE id=${sql_conn.escape(date_id)} 
                 AND fk_company_uuid=${sql_conn.escape(company_uuid)};
                 SELECT can_edit
                 FROM UserLinkedCompanyGroupDate 
