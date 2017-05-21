@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-05-21T14:44:48.657Z",
+	"__export_date": "2017-05-21T15:09:17.368Z",
 	"__export_source": "insomnia.desktop.app:v5.0.20",
 	"resources": [
 		{
@@ -33,7 +33,7 @@
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1495377872353,
+			"modified": 1495379324203,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -1144,6 +1144,18 @@
 			"_type": "request"
 		},
 		{
+			"_id": "fld_b14353fc2bdc43a6beb89d6d3611adee",
+			"parentId": "fld_4721904c9a794928b3a1232fc298508c",
+			"modified": 1495379175761,
+			"created": 1495379166149,
+			"name": "Date",
+			"environment": {
+				"base_url": "{{base_url}}date/"
+			},
+			"metaSortKey": -1495379166149,
+			"_type": "request_group"
+		},
+		{
 			"_id": "req_a641b4eafeab494d89d4730f1588aaeb",
 			"parentId": "fld_4721904c9a794928b3a1232fc298508c",
 			"modified": 1495373537578,
@@ -1184,10 +1196,10 @@
 		{
 			"_id": "req_d9d70d7efaa0455d84b43bc088060e8d",
 			"parentId": "fld_4721904c9a794928b3a1232fc298508c",
-			"modified": 1495377285782,
+			"modified": 1495379268084,
 			"created": 1495377269084,
 			"url": "{{base_url}}dates",
-			"name": "Date",
+			"name": "Dates",
 			"method": "GET",
 			"body": {
 				"mimeType": "application/json",
@@ -1459,6 +1471,44 @@
 			],
 			"authentication": {},
 			"metaSortKey": -1492187865695,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_6bbde35de96449668eb6ee9bc2ae0334",
+			"parentId": "fld_b14353fc2bdc43a6beb89d6d3611adee",
+			"modified": 1495379231871,
+			"created": 1495379183323,
+			"url": "{{base_url}}users",
+			"name": "Users",
+			"method": "GET",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\",\n\t\"group_id\": 0,\n\t\"date_id\": 0\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}",
+					"id": "pair_147f0f8ade934e01bbb8030951a7568a"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}",
+					"id": "pair_f822b607d1424b63868a59196acf6014"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_909d639e12de4ea1b4092d21f4ac70fe"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490543939893.6875,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
 			"settingDisableRenderRequestBody": false,

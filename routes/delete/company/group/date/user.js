@@ -75,7 +75,7 @@ module.exports = (app, express, request, response, next) => {
                     }
                     //Comprobar si la fecha existe
                     global.functions.isCompanyGroupDateRegistered(body.company_uuid, body.group_id, body.date_id)
-                     .then(isCompanyGroupDateRegistered => {
+                        .then(isCompanyGroupDateRegistered => {
                         if(!isCompanyGroupDateRegistered){
                             response.json({valid: false, message: `No existe esta fecha dentro de este grupo dentro de la compañia`});
                             return;
