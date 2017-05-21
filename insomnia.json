@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-05-21T13:18:26.305Z",
+	"__export_date": "2017-05-21T13:33:58.569Z",
 	"__export_source": "insomnia.desktop.app:v5.0.20",
 	"resources": [
 		{
@@ -33,7 +33,7 @@
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1495372696209,
+			"modified": 1495373599139,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -624,6 +624,18 @@
 			"_type": "request"
 		},
 		{
+			"_id": "fld_4721904c9a794928b3a1232fc298508c",
+			"parentId": "fld_c2d196499cde425ba458c0135aeefeeb",
+			"modified": 1495373505912,
+			"created": 1495373483278,
+			"name": "Group",
+			"environment": {
+				"base_url": "{{base_url}}group/"
+			},
+			"metaSortKey": -1495373483278,
+			"_type": "request_group"
+		},
+		{
 			"_id": "req_98a170488e884fa9b19f032fd78a3a2a",
 			"parentId": "fld_c2d196499cde425ba458c0135aeefeeb",
 			"modified": 1495290754464,
@@ -1132,6 +1144,44 @@
 			"_type": "request"
 		},
 		{
+			"_id": "req_a641b4eafeab494d89d4730f1588aaeb",
+			"parentId": "fld_4721904c9a794928b3a1232fc298508c",
+			"modified": 1495373537578,
+			"created": 1495373487027,
+			"url": "{{base_url}}users",
+			"name": "Users",
+			"method": "GET",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\",\n\t\"group_id\": 0\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}",
+					"id": "pair_147f0f8ade934e01bbb8030951a7568a"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}",
+					"id": "pair_f822b607d1424b63868a59196acf6014"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_909d639e12de4ea1b4092d21f4ac70fe"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490543939896.75,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
 			"_id": "req_acfcf11fa5dc44ed8a479fafeb861dcd",
 			"parentId": "fld_4bb9b06c2ea64df5929c8780e8f4ff3c",
 			"modified": 1495290754329,
@@ -1304,14 +1354,14 @@
 		{
 			"_id": "req_5a10a6b22426465caf5b807d4f6ca98d",
 			"parentId": "fld_ce811b2b5a5b45dfab27f20d220094fa",
-			"modified": 1495290754305,
+			"modified": 1495373586071,
 			"created": 1492187865645,
 			"url": "{{base_url}}user",
 			"name": "User",
 			"method": "PUT",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"company_uuid\": \"82542ca3-42c6-4764-83ef-566f7c344bec\",\n\t\"group_id\": 0,\n\t\"user_uuid\": \"290b6dc2-ce74-48e9-ace2-ac9fdbd5b5a8\",\n\t\"can_edit\": true\n}"
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\",\n\t\"group_id\": 0,\n\t\"user_uuid\": \"4abb7275-d717-4e7a-af66-a342408b6220\",\n\t\"can_edit\": true\n}"
 			},
 			"parameters": [],
 			"headers": [
