@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-05-21T13:33:58.569Z",
+	"__export_date": "2017-05-21T14:44:48.657Z",
 	"__export_source": "insomnia.desktop.app:v5.0.20",
 	"resources": [
 		{
@@ -33,7 +33,7 @@
 		{
 			"_id": "jar_e1225c4f45724daeb3dabefac5ae38ce",
 			"parentId": "wrk_0069e61ba9b645c2b4e707747f9b1bbc",
-			"modified": 1495373599139,
+			"modified": 1495377872353,
 			"created": 1490224844364,
 			"name": "Default Jar",
 			"cookies": [],
@@ -1175,6 +1175,44 @@
 			],
 			"authentication": {},
 			"metaSortKey": -1490543939896.75,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_d9d70d7efaa0455d84b43bc088060e8d",
+			"parentId": "fld_4721904c9a794928b3a1232fc298508c",
+			"modified": 1495377285782,
+			"created": 1495377269084,
+			"url": "{{base_url}}dates",
+			"name": "Date",
+			"method": "GET",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"company_uuid\": \"0aa7b5a2-2d91-4636-82f2-adbd27ec9a73\",\n\t\"group_id\": 0\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"value": "{{client_id}}",
+					"id": "pair_147f0f8ade934e01bbb8030951a7568a"
+				},
+				{
+					"name": "client_token",
+					"value": "{{client_token}}",
+					"id": "pair_f822b607d1424b63868a59196acf6014"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_909d639e12de4ea1b4092d21f4ac70fe"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1490543939890.625,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
 			"settingDisableRenderRequestBody": false,
