@@ -78,7 +78,7 @@ module.exports = (app, express, request, response, next) => {
                         FROM UserLinkedCompanyGroupDate 
                         WHERE fk_company_uuid=${sql_conn.escape(body.company_uuid)} 
                         AND fk_group_id=${sql_conn.escape(body.group_id)} 
-                        AND fk_date_id=${sql_conn.escape(body.group_id)} 
+                        AND fk_date_id=${sql_conn.escape(body.date_id)} 
                         ORDER BY join_timestamp DESC`;
                         sql_conn.query(sql_query, (sql_error, sql_results, sql_fields) => {
                             let promises = [];
